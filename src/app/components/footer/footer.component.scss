@@ -1,0 +1,30 @@
+@import "../../../vars";
+
+* {
+  color: white;
+}
+
+div, .height-full {
+  display: flex;
+  height: 62px;
+  align-items: center;
+}
+
+p {
+  font-size: 25px;
+  font-weight: 300;
+  margin: 0!important;
+}
+
+p.bold {
+  font-weight: 600;
+}
+
+p.small {
+  font-size: 21px;
+}
+
+img {
+  margin-right: -0.75px;
+  margin-left: -0.75px;
+}

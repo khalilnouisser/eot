@@ -1,0 +1,73 @@
+<div class="container text-center">
+  <div class="slider">
+    <img src="assets/images/slider_home_1.svg"/>
+  </div>
+
+  <p class="home-seach-text">
+    Recherche tagline here
+  </p>
+  <div class="seach-input mb-100">
+    <img src="assets/images/search.svg"/>
+    <input type="text" placeholder="Recherche"/>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="page-main-title left-title">
+    <img src="assets/images/ic_circle_blue.svg"/>
+    <h1>Infographies</h1>
+  </div>
+  <div class="insight-slider text-center mb-100">
+    <img src="assets/images/insights-1.svg"/>
+  </div>
+  <div class="w-100 mb-130 d-flex justify-content-center">
+    <div class="slider w-65">
+      <owl-carousel-o [options]="insightsCustomOptions">
+        <ng-template carouselSlide>
+          <app-insight-item></app-insight-item>
+          <app-insight-item></app-insight-item>
+        </ng-template>
+        <ng-template carouselSlide>
+          <app-insight-item></app-insight-item>
+          <app-insight-item></app-insight-item>
+        </ng-template>
+        <ng-template carouselSlide>
+          <app-insight-item></app-insight-item>
+          <app-insight-item></app-insight-item>
+        </ng-template>
+        <ng-template carouselSlide>
+          <app-insight-item></app-insight-item>
+          <app-insight-item></app-insight-item>
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+  </div>
+  <div class="page-main-title right-title">
+    <h1 class="green-title">Rapports</h1>
+    <img src="assets/images/ic_circle_green.svg"/>
+  </div>
+  <div class="insight-slider text-center mb-100">
+    <img src="assets/images/insights-2.svg"/>
+  </div>
+  <div class="w-100 mb-130 d-flex justify-content-center">
+    <div class="slider w-65">
+      <owl-carousel-o [options]="insightsCustomOptions">
+        <ng-template carouselSlide>
+          <app-insight-item></app-insight-item>
+          <app-insight-item></app-insight-item>
+        </ng-template>
+        <ng-template carouselSlide>
+          <app-insight-item></app-insight-item>
+          <app-insight-item></app-insight-item>
+        </ng-template>
+        <ng-template carouselSlide>
+          <app-insight-item></app-insight-item>
+          <app-insight-item></app-insight-item>
+        </ng-template>
+        <ng-template carouselSlide>
+          <app-insight-item></app-insight-item>
+          <app-insight-item></app-insight-item>
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+  </div>
+</div>

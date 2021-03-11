@@ -1,0 +1,53 @@
+@import "../../../vars";
+
+.logo {
+  width: 85px;
+  padding-top: 30px;
+}
+
+.navbar{
+  padding: 0 90px 30px;
+  background-color: white!important;
+}
+
+.navbar-collapse  {
+  flex-grow: 0!important;
+}
+
+.nav-item {
+  padding: 0 20px;
+  img {
+    opacity: 0;
+  }
+  a {
+    color: $gray2;
+    font-weight: 400;
+    font-size: 16px;
+  }
+}
+
+.nav-item:hover{
+  cursor: pointer;
+}
+
+.nav-item.active {
+  img {
+    opacity: 1;
+  }
+  a {
+    color: $blue1;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color : $blue1;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
+  }
+}
+
+.submit-button{
+  margin-top: 30px;
+}
+
+.mr-80 {
+  margin-right: 4vw;
+}
