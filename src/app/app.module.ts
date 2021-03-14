@@ -24,6 +24,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCommonModule} from '@angular/material/core';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
+import { SigninComponent } from './pages/signin/signin.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import {MatInputModule} from '@angular/material/input';
     AboutComponent,
     PartnersComponent,
     ContactComponent,
-    InsightDetailsComponent
+    InsightDetailsComponent,
+    SigninComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     CoreModule,

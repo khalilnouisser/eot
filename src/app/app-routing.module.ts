@@ -8,6 +8,9 @@ import {PartnersComponent} from './pages/partners/partners.component';
 import {ContactComponent} from './pages/contact/contact.component';
 import {MapComponent} from './pages/map/map.component';
 import {InsightDetailsComponent} from './pages/insight-details/insight-details.component';
+import {LoginComponent} from './pages/login/login.component';
+import {SigninComponent} from './pages/signin/signin.component';
+import {SignupComponent} from './pages/signup/signup.component';
 
 const routes: Routes = [
   {
@@ -47,6 +50,21 @@ const routes: Routes = [
     path: 'contact',
     component: ContactComponent,
   },
+  {
+    path: 'login',
+    component: LoginComponent,
+    children: [
+      {
+        path: 'sign-in',
+        component: SigninComponent,
+      },
+      {
+        path: 'sign-up',
+        component: SignupComponent,
+      },
+    ]
+  },
+
 ];
 
 @NgModule({

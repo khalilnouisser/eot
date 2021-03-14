@@ -163,7 +163,7 @@ body {
 }
 
 .home-seach-text {
-  margin-top: 26px;
+  margin-top: 26px!important;
   color: $blue1;
   font-size: 14.4px;
   text-align: center;
@@ -206,7 +206,7 @@ h2 {
     color: $red;
     font-size: 67px;
     font-weight: 700;
-    margin-bottom: -10px;
+    margin-bottom: 14px;
   }
 
   h6 {
@@ -374,4 +374,10 @@ body {
 
 .mat-form-field-appearance-fill .mat-form-field-flex {
   background: rgba(233, 239, 246, 0.45)!important;
+  //padding: .75em .75em .75em .75em!important;
+}
+
+.mat-input-icon {
+  margin-right: 15px;
+  margin-top: -15px;
 }
