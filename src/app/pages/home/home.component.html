@@ -2,7 +2,25 @@
   <div class="slider">
     <owl-carousel-o [options]="customOptions">
       <ng-template carouselSlide>
-        <img src="assets/images/slider_home_1.svg"/>
+        <div class="container carousel-slide">
+          <div class="row no-gutters">
+            <div class="col-md-5 first-slide">
+              <div class="slide-content d-flex flex-column justify-content-center h-100">
+                <div>
+                  <h2>Infographies & Rapports</h2>
+                  <p>
+                    Les startups, accélerateurs, incubateurs, investisseurs, coworking spaces, structures de soutien (Enabler),
+                    services publiques, média, appels à projets, événements et jobs.
+                  </p>
+                </div>
+              </div>
+              <svg-icon class="dots" [svgStyle]="{'width.px': 58}" src="assets/images/white-dots.svg"></svg-icon>
+              <div class="circle"></div>
+            </div>
+            <div class="col-md-7 first-image-slide">
+            </div>
+          </div>
+        </div>
       </ng-template>
       <ng-template carouselSlide>
         <img src="assets/images/slider_home_2.svg"/>
@@ -10,33 +28,37 @@
     </owl-carousel-o>
   </div>
 
-  <p class="home-seach-text">
-    Recherche un startup , accelerateur, incubateur ,Investisseur, Coworking Space, Structure de soutien (Enabler),
-    Service publique, Media, Appel à projets ,Evénement ou Job
-  </p>
-  <div class="seach-input mb-100">
-    <img src="assets/images/search.svg"/>
-    <input type="text" placeholder="Recherche"/>
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <p class="home-seach-text">
+        Rechercher une startup, accélerateur, incubateur, investisseur, coworking space, structure de soutien (Enabler),
+        service publique, média, appel à projets, événement ou job
+      </p>
+      <div class="search-input mb-100">
+        <svg-icon [svgStyle]="{'width.px': 32}" src="assets/images/search.svg"></svg-icon>
+        <input type="text" placeholder="Recherche"/>
+      </div>
+    </div>
   </div>
   <h2>L'Observatoire de l'écosystème entrepreneurial tunisien</h2>
   <div class="row text-center justify-content-center mb-100">
-    <div class="col-2 stat-item">
+    <div class="col-md-2 stat-item">
       <h1>250</h1>
       <h6>startups</h6>
     </div>
-    <div class="col-2 stat-item">
+    <div class="col-md-2 stat-item">
       <h1>160</h1>
       <h6>structures d’accompagnement</h6>
     </div>
-    <div class="col-2 stat-item">
+    <div class="col-md-2 stat-item">
       <h1>98</h1>
       <h6>Coworking spaces</h6>
     </div>
-    <div class="col-2 stat-item">
+    <div class="col-md-2 stat-item">
       <h1>20</h1>
       <h6>investisseurs</h6>
     </div>
-    <div class="col-2 stat-item">
+    <div class="col-md-2 stat-item">
       <h1>10</h1>
       <h6>infographies & rapports</h6>
     </div>

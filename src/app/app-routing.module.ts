@@ -11,6 +11,7 @@ import {InsightDetailsComponent} from './pages/insight-details/insight-details.c
 import {LoginComponent} from './pages/login/login.component';
 import {SigninComponent} from './pages/signin/signin.component';
 import {SignupComponent} from './pages/signup/signup.component';
+import { AddComponent } from './pages/add/add.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,10 @@ const routes: Routes = [
       },
     ]
   },
+  {
+    path: 'add',
+    component: AddComponent
+  }
 
 ];
 

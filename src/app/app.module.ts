@@ -27,6 +27,10 @@ import {MatInputModule} from '@angular/material/input';
 import { SigninComponent } from './pages/signin/signin.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
+import { AddComponent } from './pages/add/add.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,8 @@ import { LoginComponent } from './pages/login/login.component';
     InsightDetailsComponent,
     SigninComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    AddComponent
   ],
   imports: [
     CoreModule,
@@ -57,7 +62,10 @@ import { LoginComponent } from './pages/login/login.component';
     MatCommonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule,
+    MatSelectModule,
+    AngularSvgIconModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
