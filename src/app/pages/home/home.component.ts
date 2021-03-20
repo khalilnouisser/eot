@@ -16,13 +16,13 @@ export class HomeComponent implements OnInit {
     dots: true,
     navSpeed: 700,
     autoplay: false,
+    nav: false,
     navText: ['', ''],
     responsive: {
       0: {
         items: 1
       }
-    },
-    nav: true
+    }
   };
   insightsCustomOptions: OwlOptions = {
     loop: true,
@@ -35,7 +35,8 @@ export class HomeComponent implements OnInit {
     navText: ['<img src="assets/images/arrow-slide-left.svg" class="arrow-slide">', '<img src="assets/images/arrow-slide-right.svg" class="arrow-slide">'],
     responsive: {
       0: {
-        items: 1
+        items: 1,
+        nav: false
       },
       1024: {
         items: 2

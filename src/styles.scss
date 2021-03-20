@@ -261,66 +261,84 @@ h2 {
 }
 
 .main-title-content {
-  height: 578px;
   background: #E4E4E4;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 
-  .pin {
-    margin-left: -197px;
-    height: 100%;
-    margin-right: 64px;
+  @include media-breakpoint-up(lg) {
+    height: 35.28vw;
   }
 
-  h3 {
-    font-size: 48px;
-    font-weight: 700;
-    color: $blue1;
-  }
+  .pin-container {
+    width: 25vw;
+    height: 74vw;
+    background: url("assets/images/mbpin.svg") top left no-repeat;
+    background-size: contain;
 
-  h6 {
-    font-size: 14.4px;
-    font-weight: 300;
-    color: $blue1;
-  }
-
-  .action-item {
-    background: $jobs;
-    color: white;
-    height: 41px;
-    padding: 10px;
-    border-radius: 20px;
-    border: 2px solid $jobs;
-    box-shadow: #0000001a 1px 1px 24px;
-
-    span {
-
+    @include media-breakpoint-up(lg) {
+      width: 12vw;
+      height: 100%;
     }
 
-    img {
-      width: 19px;
-      margin-left: 12px;
-      margin-bottom: 1px;
-    }
   }
 
-  .action-item:hover {
-    cursor: pointer;
-    color: $jobs;
-    background: transparent;
+  .content-container {
+    width: 75vw;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-left: 20px;
+
+    @include media-breakpoint-up(lg) {
+      width: 35vw;
+      height: 100%;
+    }
+
+  }
+
+  .image-container {
+    width: 100vw;
+
+    @include media-breakpoint-up(lg) {
+      width: 53vw;
+      height: 100%;
+    }
+
   }
 
   .main-image {
+    width: 100%;
     height: 100%;
-    width: 50vw;
-    object-fit: cover;
+    object-fit: contain;
   }
+
+  h2.main-title {
+    font-size: 42px;
+    color: $blue1;
+    font-family: 'Ambit', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  p.main-paragraph {
+    color: $blue1;
+    font-weight: 300;
+    font-size: 16px;
+  }
+
+  .button-container {
+    margin-top: 60px;
+  }
+
 }
 
 .mb-30 {
   margin-bottom: 30px;
-}
-
-.main-content {
-  padding-top: 108px;
 }
 
 .about {

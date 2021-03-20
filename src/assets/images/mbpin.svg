@@ -1,5 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="487.576" height="721" viewBox="0 0 487.576 721">
-  <g id="Groupe_2" data-name="Groupe 2" transform="translate(-14.501 -790.068)">
-    <path id="Tracé_24" data-name="Tracé 24" d="M429.157,67.945c-2.515-.015-5.041-.026-7.561-.026-186,.272-302.324,201.273-209.32,362.349l207.041,358.6c1.337.01,2.674.046,4.021.046s2.694-.036,4.031-.046L634.425,430.248c92.1-159.529-21.069-360.71-205.268-362.3m-5.819,368.947c-66.024,0-119.549-54.944-119.549-122.735s53.525-122.73,119.549-122.73S542.9,246.371,542.9,314.157s-53.53,122.735-119.559,122.735" transform="translate(-165.051 722.149)" fill="#e62825"/>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 244.6 721" style="enable-background:new 0 0 244.6 721;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#E62825;}
+</style>
+<path class="st0" d="M6.6,0L6.6,0C4.4,0,2.2,0,0,0v123.5c0.3,0,0.5,0,0.8,0c66,0,119.6,54.9,119.6,122.7S66.8,369,0.8,369l0,0
+	c-0.3,0-0.5,0-0.8,0v352c0.3,0,0.5,0,0.8,0c1.3,0,2.7,0,4,0l207.1-358.6C304,202.8,190.8,1.6,6.6,0z"/>
 </svg>
