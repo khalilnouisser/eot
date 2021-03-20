@@ -588,7 +588,7 @@ label.pic-label {
 }
 
 .slide-content {
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     padding-left: 70px;
   }
   color: #FFFFFF;
