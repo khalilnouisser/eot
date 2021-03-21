@@ -18,12 +18,38 @@
               <div class="circle"></div>
             </div>
             <div class="col-lg-7 first-image-slide">
+              <svg-icon class="dots dots-1" [svgStyle]="{'width.px': 32}" src="assets/images/blue-dots.svg"></svg-icon>
+              <svg-icon class="dots dots-2" [svgStyle]="{'width.px': 32}" src="assets/images/blue-dots.svg"></svg-icon>
             </div>
           </div>
         </div>
       </ng-template>
       <ng-template carouselSlide>
-        <img src="assets/images/slider_home_2.svg"/>
+        <div class="container carousel-slide">
+          <div class="row no-gutters">
+            <div class="col-lg-7 second-image-slide order-1 order-lg-0">
+              <svg-icon class="dots dots-1" [svgStyle]="{'width.px': 32}" src="assets/images/blue-dots.svg"></svg-icon>
+              <svg-icon class="dots dots-2" [svgStyle]="{'width.px': 32}" src="assets/images/blue-dots.svg"></svg-icon>
+            </div>
+            <div class="col-lg-5 second-slide order-0 order-lg-1">
+              <div class="slide-content d-flex flex-column justify-content-center h-100">
+                <div>
+                  <h2>Découvrir</h2>
+                  <p>
+                    Les startups, accélerateurs, incubateurs, investisseurs, coworking spaces, structures de soutien (Enabler),
+                    services publiques, média, appels à projets, événements et jobs.
+                  </p>
+                  <a class="carousel-link" href="#">
+                    <svg-icon [svgStyle]="{'width.px': 40}" src="assets/icons/ic-go.svg"></svg-icon>
+                    Go To Map
+                  </a>
+                </div>
+              </div>
+              <svg-icon class="dots" [svgStyle]="{'width.px': 58}" src="assets/images/white-dots.svg"></svg-icon>
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
       </ng-template>
     </owl-carousel-o>
   </div>
@@ -40,7 +66,7 @@
       </div>
     </div>
   </div>
-  <h2>L'Observatoire de l'écosystème entrepreneurial tunisien</h2>
+  <h3 class="obs-title">L'Observatoire de l'écosystème entrepreneurial tunisien</h3>
   <div class="row text-center justify-content-center mb-100">
     <div class="col-lg-2 stat-item text-center text-lg-start mb-3">
       <h1>250</h1>
@@ -89,7 +115,7 @@
 <div class="main-title-content">
   <div class="pin-container flex-wrap">
   </div>
-  <div class="content-container">
+  <div class="content-container py-5">
     <h2 class="main-title">
       Main Title Here
     </h2>
@@ -98,10 +124,26 @@
       service publique, média, appel à projets, événement ou job
     </p>
     <div class="button-container">
-      <a href="">
-        Ajouter votre startup
-        <svg-icon src="assets/images/ic-add-circle-white.svg"></svg-icon>
-      </a>
+      <ul class="link-list">
+        <li class="link-item">
+          <a class="link" href="#">
+            Ajouter votre startup
+            <svg-icon [svgStyle]="{'width.px': 24}" src="assets/images/ic-add-circle-white.svg"></svg-icon>
+          </a>
+        </li>
+        <li class="link-item">
+          <a class="link" href="#">
+            Ajouter votre offre d’emploi
+            <svg-icon [svgStyle]="{'width.px': 24}" src="assets/images/ic-add-circle-white.svg"></svg-icon>
+          </a>
+        </li>
+        <li class="link-item">
+          <a class="link" href="#">
+            Ajouter votre structure de soutien
+            <svg-icon [svgStyle]="{'width.px': 24}" src="assets/images/ic-add-circle-white.svg"></svg-icon>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
   <div class="image-container">
@@ -112,8 +154,8 @@
 <div class="container-fluid">
   <div class="about mb-80">
     <div class="header d-flex align-items-center justify-content-center">
-      <img src="assets/images/about.svg">
-      <h1>A propos</h1>
+      <svg-icon [svgStyle]="{'height.px': 59}" src="assets/images/about.svg"></svg-icon>
+      <h1>À propos</h1>
     </div>
     <div class="container">
       <div class="row">

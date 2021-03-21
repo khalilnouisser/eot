@@ -9,11 +9,12 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mb-2 mr-80 mb-lg-0">
         <li class="nav-item text-center" *ngFor="let item of menus" [routerLink]="item.path" routerLinkActive="active">
-          <img class="icon" src="assets/images/{{item.icon}}.svg" />
+          <img [alt]="item.title + ' icon'" class="icon" src="assets/images/{{item.icon}}.svg" />
           <a class="nav-link" aria-current="page">{{item.title}}</a>
+          <div class="title-underline"></div>
         </li>
       </ul>
-      <span routerLink="/login/sign-in" class=" navbar-text">
+      <span routerLink="/login/sign-in">
         <button class="btn submit-button">
           Se connecter
         </button>

@@ -1,53 +1,81 @@
 @import "../../../vars";
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/mixins";
+
 
 .logo {
-  width: 85px;
-  padding-top: 30px;
-}
-
-.navbar{
-  padding: 0 90px 30px;
-  background-color: white!important;
-}
-
-.navbar-collapse  {
-  flex-grow: 0!important;
+  width: 50px;
 }
 
 .nav-item {
   padding: 0 20px;
+
   img {
     opacity: 0;
+    transform: translateY(100%);
+    transition: all .3s ease-in-out;
   }
+
   a {
     color: $gray2;
     font-weight: 400;
     font-size: 16px;
+    transition: color .3s ease-in-out;
   }
-}
 
-.nav-item:hover{
-  cursor: pointer;
+  .title-underline {
+    min-height: 2px;
+    background-color: $blue1;
+    transform: scaleX(0);
+    transition: all .3s ease-in-out;
+  }
+
 }
 
 .nav-item.active {
+
   img {
     opacity: 1;
+    transform: translateY(0);
   }
+
   a {
     color: $blue1;
     font-weight: 500;
-    text-decoration: underline;
-    text-decoration-color : $blue1;
-    text-underline-offset: 6px;
-    text-decoration-thickness: 2px;
   }
+
+  .title-underline {
+    transform: scaleX(1);
+  }
+
 }
 
-.submit-button{
-  margin-top: 30px;
-}
+@include media-breakpoint-up(lg) {
+  .logo {
+    width: 85px;
+    padding-top: 30px;
+  }
 
-.mr-80 {
-  margin-right: 4vw;
+  .navbar{
+    padding: 0 90px 30px;
+    background-color: white!important;
+  }
+
+  .navbar-collapse  {
+    flex-grow: 0 !important;
+  }
+
+  .nav-item:hover{
+    cursor: pointer;
+  }
+
+  .submit-button{
+    margin-top: 30px;
+  }
+
+  .mr-80 {
+    margin-right: 4vw;
+  }
+
 }

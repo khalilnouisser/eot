@@ -261,7 +261,7 @@ h2 {
 }
 
 .main-title-content {
-  background: #E4E4E4;
+  background: #E4E4E424;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
@@ -346,11 +346,6 @@ h2 {
 
   .header {
     margin-bottom: 60px;
-
-    img {
-      width: 39px;
-      margin-right: 13px;
-    }
 
     h1 {
       font-weight: 600;
@@ -578,8 +573,45 @@ label.pic-label {
   }
 
   .first-image-slide {
+    position: relative;
     background: url("assets/images/img-first-slide.png") center no-repeat;
     background-size: cover;
+    overflow: hidden;
+
+    .dots-1 {
+      position: absolute;
+      right: 0;
+      top: 50px;
+      transform: translateX(46%) rotate(90deg);
+    }
+
+    .dots-2 {
+      position: absolute;
+      left: 50px;
+      bottom: 0;
+      transform: translateY(46%) rotate(90deg);
+    }
+  }
+
+  .second-image-slide {
+    position: relative;
+    background: url("assets/images/brochure-tunisia.png") center no-repeat;
+    background-size: contain;
+    overflow: hidden;
+
+    .dots-1 {
+      position: absolute;
+      left: 0;
+      top: 20px;
+      transform: translateX(-13%) rotate(90deg);
+    }
+
+    .dots-2 {
+      position: absolute;
+      left: 65%;
+      bottom: 10px;
+      transform: rotate(90deg);
+    }
   }
 
 }
@@ -592,8 +624,13 @@ label.pic-label {
 
   .dots {
     position: absolute;
-    top: 35px;
-    left: 50px;
+    right: 35px;
+    bottom: 35px;
+
+    @include media-breakpoint-up(lg) {
+      top: 35px;
+      left: 50px;
+    }
   }
 
   .circle {
@@ -605,15 +642,55 @@ label.pic-label {
 
 }
 
+.second-slide {
+  background-color: $blue1;
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+
+  .dots {
+    position: absolute;
+    right: 35px;
+    bottom: 35px;
+
+    @include media-breakpoint-up(lg) {
+      top: 35px;
+      left: 50px;
+    }
+
+  }
+
+  .circle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+
+  .carousel-link {
+    margin-top: 30px;
+    display: inline-block;
+    color: #F1FAEE;
+    text-decoration: none;
+    font-family: 'Ambit', sans-serif;
+
+    svg-icon {
+      margin-right: 8px;
+    }
+
+  }
+
+}
+
 .slide-content {
   @include media-breakpoint-up(lg) {
-    padding-left: 70px;
+    padding-left: 40px;
   }
   color: #FFFFFF;
 
   h2 {
     font-family: 'Ambit', sans-serif;
-    font-size: 40px;
+    font-size: 38px;
     font-weight: 600;
     color: #FFFFFF;
   }
@@ -630,4 +707,46 @@ label.pic-label {
   height: 160px;
   border-radius: 100%;
   background-color: #FFFFFF;
+}
+
+.link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link-item {
+  padding: 6px 20px 6px 0;
+}
+
+.link {
+  display: inline-block;
+  background-color: $blue0;
+  border: solid 1px $blue0;
+  border-radius: 24px;
+  padding: 6px 16px 6px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-family: 'Ambit', sans-serif;
+  font-weight: 300;
+  transition: all .1s ease-in-out;
+
+  svg-icon {
+    margin-left: 5px;
+  }
+
+  &:hover {
+    color: $blue0;
+    background: #E4E4E424;
+  }
+
+}
+
+h3.obs-title {
+  font-family: 'Ambit', sans-serif;
+  font-size: 42px;
+  font-weight: bold;
+  color: $blue1;
+  margin-bottom: 40px;
 }

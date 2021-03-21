@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
       path: 'jobs'
     },
     {
-      title: 'A propos',
+      title: 'À propos',
       icon: 'about',
       path: 'about'
     },
