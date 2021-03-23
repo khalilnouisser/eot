@@ -241,14 +241,14 @@ h2 {
 }
 
 .stat-item {
-  h1 {
+  p.stat-value {
     color: $red;
     font-size: 67px;
     font-weight: 700;
     margin-bottom: 14px;
   }
 
-  h6 {
+  p.stat-title {
     color: $blue0;
     font-size: 17px;
     font-weight: 500;
@@ -376,7 +376,7 @@ h2 {
     width: 180px;
   }
 
-  h1 {
+  h2 {
     font-size: 57px;
     font-weight: 700;
     color: $blue1;
@@ -433,6 +433,11 @@ html, body {
   background-color: $bg-color;
   border-radius: 40px;
   padding: 40px;
+}
+
+.map-page {
+  background-color: $bg-color;
+  border-radius: 40px;
 }
 
 h1.add-title {
@@ -616,14 +621,14 @@ label.pic-label {
 
 }
 
-.first-slide {
-  background-color: $red;
+.home-slide {
   position: relative;
   text-align: left;
   overflow: hidden;
 
   .dots {
     position: absolute;
+    width: 58px !important;
     right: 35px;
     bottom: 35px;
 
@@ -632,6 +637,11 @@ label.pic-label {
       left: 50px;
     }
   }
+
+}
+
+.first-slide {
+  background-color: $red;
 
   .circle {
     position: absolute;
@@ -647,18 +657,6 @@ label.pic-label {
   position: relative;
   text-align: left;
   overflow: hidden;
-
-  .dots {
-    position: absolute;
-    right: 35px;
-    bottom: 35px;
-
-    @include media-breakpoint-up(lg) {
-      top: 35px;
-      left: 50px;
-    }
-
-  }
 
   .circle {
     position: absolute;

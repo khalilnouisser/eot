@@ -1,0 +1,139 @@
+@import "src/vars";
+
+@mixin placeholder-color($color) {
+  &::-webkit-input-placeholder { /* WebKit browsers */
+    color: $color;
+  }
+  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $color;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: $color;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: $color;
+  }
+}
+
+.map-container {
+  min-height: 70vh;
+  height: 100%;
+  border-radius: 40px;
+  overflow: hidden;
+  position: relative;
+
+  agm-map {
+    height: 100%;
+  }
+
+  .map-filter {
+    position: absolute;
+    z-index: 999;
+    background-color: #FFFFFF;
+    bottom: 20px;
+    right: 20px;
+    padding: 30px 0;
+    width: 300px;
+    border-radius: 20px;
+
+    h6 {
+      font-size: 18px;
+      font-family: 'Ambit', sans-serif;
+      font-weight: 500;
+      color: $blue1;
+      text-align: center;
+    }
+
+    label {
+      font-size: 14px;
+      font-family: 'Ambit', sans-serif;
+      font-weight: 300;
+      color: #AAAAAA;
+    }
+
+    .form-control {
+      border-color: #EBEBEB;
+      @include placeholder-color(#EBEBEB);
+    }
+
+  }
+
+}
+
+.map-legend-container {
+  min-width: 300px;
+  padding: 40px 5px;
+}
+
+hr.separator {
+  border: dashed 1px #707070;
+  background: none;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.map-legend {
+  font-family: 'Ambit', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+
+  svg-icon {
+    margin-right: 10px;
+  }
+
+}
+
+.map-number {
+  font-family: 'Ambit', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  text-align: right;
+}
+
+.startup {
+  color: $startup;
+}
+
+.accelerator {
+  color: $accelerator;
+}
+
+.incubator {
+  color: $incubator;
+}
+
+.investor {
+  color: $investor;
+}
+
+.coworking {
+  color: $coworking;
+}
+
+.structures {
+  color: $structures;
+}
+
+.media {
+  color: $media;
+}
+
+.services {
+  color: $services;
+}
+
+.jobs {
+  color: $jobs;
+}
+
+.projects {
+  color: $projects;
+}
+
+.events {
+  color: $events;
+}
+
+.test {
+  color: #FFFFFF;
+}

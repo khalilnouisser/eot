@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
+import { ApiService } from '../../core/http/api.service';
+import { Stat } from '../../core/models/stat.model';
+import { ActivatedRoute } from '@angular/router';
+import { Insight } from '../../core/models/insight.model';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +21,6 @@ export class HomeComponent implements OnInit {
     navSpeed: 700,
     autoplay: false,
     nav: false,
-    navText: ['', ''],
     responsive: {
       0: {
         items: 1
@@ -32,7 +35,7 @@ export class HomeComponent implements OnInit {
     dots: false,
     navSpeed: 700,
     autoplay: false,
-    navText: ['<img src="assets/images/arrow-slide-left.svg" class="arrow-slide">', '<img src="assets/images/arrow-slide-right.svg" class="arrow-slide">'],
+    navText: ['<img alt="left arrow" src="assets/images/arrow-slide-left.svg" class="arrow-slide">', '<img alt="right arrow" src="assets/images/arrow-slide-right.svg" class="arrow-slide">'],
     responsive: {
       0: {
         items: 1,
@@ -45,10 +48,15 @@ export class HomeComponent implements OnInit {
     nav: true
   };
 
-  constructor() {
+  stats: Stat[];
+  insights: Insight[];
+
+  constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.stats = this.route.snapshot.data.stats;
+    this.insights = this.route.snapshot.data.insights;
   }
 
 }

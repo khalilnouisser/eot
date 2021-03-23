@@ -1,6 +1,5 @@
 import {NgModule, Optional, SkipSelf} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {CoreModule} from '../core';
 import { InsightItemComponent } from './components/insight-item/insight-item.component';
 import {RouterModule} from '@angular/router';
 

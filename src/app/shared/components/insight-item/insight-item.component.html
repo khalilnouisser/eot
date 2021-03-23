@@ -1,11 +1,12 @@
-<div class="mx-3 mb-4" routerLink="/insights/sd">
+<div class="mx-3 mb-4">
   <div class="item">
-    <img class="cover" src="assets/images/insight-bg-ex.png"/>
+    <img [alt]="insight?.title + ' cover'" [src]="baseUrl+insight?.cover?.url"/>
     <!--  <img class="white-bg" src="assets/images/bg_gradient_white.svg"/>-->
-    <div class="footer">
-      <h4>Tunisian startup diaspora</h4>
-      <h6>October 2020</h6>
+    <div class="item-content">
+      <div class="bottom">
+        <a [routerLink]="['/insights', insight?.id]"><h4>{{ insight?.title }}</h4></a>
+        <p>{{ insight?.subTitle }}</p>
+      </div>
     </div>
-    <div class="grad-white"></div>
   </div>
 </div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Partner } from '../../core/models/partner.model';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-partners',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PartnersComponent implements OnInit {
 
-  constructor() { }
+  baseUrl = environment.serverUrl;
+
+  partners: Partner[];
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.partners = this.route.snapshot.data.partners;
   }
 
 }

@@ -7,7 +7,7 @@ export interface Credentials {
   token: string;
 }
 
-const credentialsKey = 'credentials';
+export const credentialsKey = 'jwt';
 
 /**
  * Provides storage for authentication credentials.
@@ -17,6 +17,7 @@ const credentialsKey = 'credentials';
   providedIn: 'root'
 })
 export class CredentialsService {
+  // tslint:disable-next-line:variable-name
   private _credentials: Credentials | null = null;
 
   constructor() {

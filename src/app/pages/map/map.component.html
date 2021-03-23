@@ -1,0 +1,166 @@
+<div class="container-fluid map-page mb-3">
+  <div class="row">
+    <div class="col-lg-auto">
+      <div class="map-legend-container">
+        <div class="startup row">
+          <div class="col map-legend">
+            <svg-icon src="assets/icons/ic-startup.svg"></svg-icon>
+            Startups
+          </div>
+          <div class="col-auto map-number">
+            {{ count(EntityType.Startup) }}
+          </div>
+        </div>
+        <hr class="separator">
+        <div class="accelerator row">
+          <div class="col map-legend">
+            <svg-icon src="assets/icons/ic-accelerator.svg"></svg-icon>
+            Accélérateurs
+          </div>
+          <div class="col-auto map-number">
+            {{ count(EntityType.Accelerator) }}
+          </div>
+        </div>
+        <hr class="separator">
+        <div class="incubator row">
+          <div class="col map-legend">
+            <svg-icon src="assets/icons/ic-incubator.svg"></svg-icon>
+            Incubateurs
+          </div>
+          <div class="col-auto map-number">
+            {{ count(EntityType.Incubator) }}
+          </div>
+        </div>
+        <hr class="separator">
+        <div class="investor row">
+          <div class="col map-legend">
+            <svg-icon src="assets/icons/ic-investor.svg"></svg-icon>
+            Investisseurs
+          </div>
+          <div class="col-auto map-number">
+            {{ count(EntityType.Investor) }}
+          </div>
+        </div>
+        <hr class="separator">
+        <div class="coworking row">
+          <div class="col map-legend">
+            <svg-icon src="assets/icons/ic-coworking.svg"></svg-icon>
+            Coworking Spaces
+          </div>
+          <div class="col-auto map-number">
+            {{ count(EntityType.CoworkingSpace) }}
+          </div>
+        </div>
+        <hr class="separator">
+        <div class="structures row">
+          <div class="col map-legend">
+            <svg-icon src="assets/icons/ic-structure.svg"></svg-icon>
+            Structures
+          </div>
+          <div class="col-auto map-number">
+            {{ count(EntityType.Structures) }}
+          </div>
+        </div>
+        <hr class="separator">
+        <div class="media row">
+          <div class="col map-legend">
+            <svg-icon src="assets/icons/ic-media.svg"></svg-icon>
+            Média
+          </div>
+          <div class="col-auto map-number">
+            {{ count(EntityType.Media) }}
+          </div>
+        </div>
+        <hr class="separator">
+        <div class="services row">
+          <div class="col map-legend">
+            <svg-icon src="assets/icons/ic-public-service.svg"></svg-icon>
+            Services publiques
+          </div>
+          <div class="col-auto map-number">
+            {{ count(EntityType.PublicService) }}
+          </div>
+        </div>
+        <hr class="separator">
+        <div class="jobs row">
+          <div class="col map-legend">
+            <svg-icon src="assets/icons/ic-job.svg"></svg-icon>
+            Jobs
+          </div>
+          <div class="col-auto map-number">
+            {{ count(EntityType.Job) }}
+          </div>
+        </div>
+        <hr class="separator">
+        <div class="projects row">
+          <div class="col map-legend">
+            <svg-icon src="assets/icons/ic-project.svg"></svg-icon>
+            Appels à projets
+          </div>
+          <div class="col-auto map-number">
+            {{ count(EntityType.Project) }}
+          </div>
+        </div>
+        <hr class="separator">
+        <div class="events row">
+          <div class="col map-legend">
+            <svg-icon src="assets/icons/ic-event.svg"></svg-icon>
+            Événements
+          </div>
+          <div class="col-auto map-number">
+            {{ count(EntityType.Event) }}
+          </div>
+        </div>
+        <hr class="separator">
+      </div>
+    </div>
+    <div class="col-lg">
+      <div class="map-container">
+        <div class="map-filter">
+          <div [formGroup]="filterForm" class="container">
+            <h6>Filtrer par</h6>
+            <div class="py-2">
+              <label>Catégories</label>
+              <mat-select formControlName="type" type="text" class="form-control" placeholder="Sélectionner une catégorie">
+                <mat-option [value]="''">Tous</mat-option>
+                <mat-option [value]="EntityType.Startup">Startup</mat-option>
+                <mat-option [value]="EntityType.Accelerator">Accélérateur</mat-option>
+                <mat-option [value]="EntityType.Incubator">Incubateur</mat-option>
+                <mat-option [value]="EntityType.Investor">Investisseurs</mat-option>
+                <mat-option [value]="EntityType.CoworkingSpace">Coworking Space</mat-option>
+                <mat-option [value]="EntityType.Structures">Structure de soutien</mat-option>
+                <mat-option [value]="EntityType.Media">Média</mat-option>
+                <mat-option [value]="EntityType.PublicService">Service publique</mat-option>
+                <mat-option [value]="EntityType.Job">Job</mat-option>
+                <mat-option [value]="EntityType.Project">Appel à projet</mat-option>
+                <mat-option [value]="EntityType.Event">Événement</mat-option>
+              </mat-select>
+            </div>
+            <div class="py-2">
+              <label>Régions</label>
+              <mat-select formControlName="region" type="text" class="form-control" placeholder="Sélectionner une région">
+                <mat-option [value]="''">Tous</mat-option>
+                <mat-option *ngFor="let region of regions" [value]="region"><span class="text-capitalize">{{ region }}</span></mat-option>
+              </mat-select>
+            </div>
+            <div class="py-2">
+              <label>Secteurs</label>
+              <mat-select type="text" class="form-control" placeholder="Sélectionner un secteur">
+              </mat-select>
+            </div>
+          </div>
+        </div>
+        <agm-map [styles]="styles"
+                 (mapReady)="onMapReady($event)"
+                 [latitude]="36.482567400686705"
+                 [longitude]="9.11027157163255">
+          <agm-marker-cluster [styles]="iconStyle" [imageSizes]="[111]">
+            <agm-marker *ngFor="let organisation of filteredOrganisations"
+                        [longitude]="organisation?.address?.longitude"
+                        [latitude]="organisation?.address?.latitude"></agm-marker>
+          </agm-marker-cluster>
+        </agm-map>
+      </div>
+    </div>
+  </div>
+</div>

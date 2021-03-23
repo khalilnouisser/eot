@@ -6,29 +6,11 @@ import {environment} from '../../../environments/environment';
   providedIn: 'root',
 })
 export class ApiService {
+
   constructor(private http: HttpClient) {
   }
 
-  login(body: any): Promise<any> {
-    return this.http
-      .post(environment.serverUrl + '/api/users/login', body)
-      .toPromise()
-      .catch(this.handleError);
-  }
-
-  getBrands(): Promise<any> {
-    return this.http
-      .get(environment.serverUrl + '/api/brands/admin')
-      .toPromise()
-      .catch(this.handleError);
-  }
-
-  public extractData(res: Response): any {
-    const body = res.json();
-    return body;
-  }
-
-  private handleError(error: Response | any): Promise<any> {
+  private static handleError(error: Response | any): Promise<any> {
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';
@@ -39,6 +21,52 @@ export class ApiService {
     }
     console.error(errMsg);
     return Promise.reject(errMsg);
+  }
+
+  getStats(): Promise<any> {
+    return this.http.get(`${environment.serverUrl}/stats`)
+      .toPromise()
+      .catch(ApiService.handleError);
+  }
+
+  getInsights(type?: string): Promise<any> {
+    return this.http.get(`${environment.serverUrl}/insights?${type ? `type=${type}` : ''}`)
+      .toPromise()
+      .catch(ApiService.handleError);
+  }
+
+  getPartners(): Promise<any> {
+    return this.http.get(`${environment.serverUrl}/partners`)
+      .toPromise()
+      .catch(ApiService.handleError);
+  }
+
+  getOrganisations(type?: string): Promise<any> {
+    return this.http.get(`${environment.serverUrl}/organizations?${type ? `type=${type}` : ''}`)
+      .toPromise()
+      .catch(ApiService.handleError);
+  }
+
+  getInsightById(id: string): Promise<any> {
+    return this.http.get(`${environment.serverUrl}/insights?id=${id}`)
+      .toPromise()
+      .catch(ApiService.handleError);
+  }
+
+  login(body: any): Promise<any> {
+    return this.http.post(`${environment.serverUrl}/auth/local`, JSON.stringify(body))
+      .toPromise()
+      .catch(error => {
+        return Promise.reject(error.error.message[0].messages[0].message);
+      });
+  }
+
+  register(body: any): Promise<any> {
+    return this.http.post(`${environment.serverUrl}/users`, JSON.stringify(body))
+      .toPromise()
+      .catch(error => {
+        return Promise.reject(error.error.message[0].messages[0].message);
+      });
   }
 
 }

@@ -14,7 +14,7 @@
           <div class="title-underline"></div>
         </li>
       </ul>
-      <span routerLink="/login/sign-in">
+      <span *ngIf="!isLoggedIn" routerLink="/login/sign-in">
         <button class="btn submit-button">
           Se connecter
         </button>

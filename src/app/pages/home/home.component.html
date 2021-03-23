@@ -4,7 +4,7 @@
       <ng-template carouselSlide>
         <div class="container carousel-slide">
           <div class="row no-gutters">
-            <div class="col-lg-5 first-slide">
+            <div class="col-lg-5 home-slide first-slide">
               <div class="slide-content d-flex flex-column justify-content-center h-100">
                 <div>
                   <h2>Infographies & Rapports</h2>
@@ -14,7 +14,7 @@
                   </p>
                 </div>
               </div>
-              <svg-icon class="dots" [svgStyle]="{'width.px': 58}" src="assets/images/white-dots.svg"></svg-icon>
+              <img class="dots" src="assets/images/white-dots.svg">
               <div class="circle"></div>
             </div>
             <div class="col-lg-7 first-image-slide">
@@ -28,10 +28,10 @@
         <div class="container carousel-slide">
           <div class="row no-gutters">
             <div class="col-lg-7 second-image-slide order-1 order-lg-0">
-              <svg-icon class="dots dots-1" [svgStyle]="{'width.px': 32}" src="assets/images/blue-dots.svg"></svg-icon>
-              <svg-icon class="dots dots-2" [svgStyle]="{'width.px': 32}" src="assets/images/blue-dots.svg"></svg-icon>
+              <svg-icon [svgStyle]="{'width.px': 32}" class="dots dots-1" src="assets/images/blue-dots.svg"></svg-icon>
+              <svg-icon [svgStyle]="{'width.px': 32}" class="dots dots-2" src="assets/images/blue-dots.svg"></svg-icon>
             </div>
-            <div class="col-lg-5 second-slide order-0 order-lg-1">
+            <div class="col-lg-5 home-slide second-slide order-0 order-lg-1">
               <div class="slide-content d-flex flex-column justify-content-center h-100">
                 <div>
                   <h2>Découvrir</h2>
@@ -45,7 +45,7 @@
                   </a>
                 </div>
               </div>
-              <svg-icon class="dots" [svgStyle]="{'width.px': 58}" src="assets/images/white-dots.svg"></svg-icon>
+              <img class="dots" src="assets/images/white-dots.svg">
               <div class="circle"></div>
             </div>
           </div>
@@ -68,25 +68,9 @@
   </div>
   <h3 class="obs-title">L'Observatoire de l'écosystème entrepreneurial tunisien</h3>
   <div class="row text-center justify-content-center mb-100">
-    <div class="col-lg-2 stat-item text-center text-lg-start mb-3">
-      <h1>250</h1>
-      <h6>startups</h6>
-    </div>
-    <div class="col-lg-2 stat-item text-center text-lg-start mb-3">
-      <h1>160</h1>
-      <h6>structures d’accompagnement</h6>
-    </div>
-    <div class="col-lg-2 stat-item text-center text-lg-start mb-3">
-      <h1>98</h1>
-      <h6>Coworking spaces</h6>
-    </div>
-    <div class="col-lg-2 stat-item text-center text-lg-start mb-3">
-      <h1>20</h1>
-      <h6>investisseurs</h6>
-    </div>
-    <div class="col-lg-2 stat-item text-center text-lg-start mb-3">
-      <h1>10</h1>
-      <h6>infographies & rapports</h6>
+    <div *ngFor="let stat of stats" class="col-lg-2 stat-item text-center text-lg-start mb-3">
+      <p class="stat-value">{{ stat?.value }}</p>
+      <p class="stat-title">{{ stat?.name }}</p>
     </div>
   </div>
 </div>
@@ -94,17 +78,8 @@
   <div class="w-100 mb-130 d-flex justify-content-center">
     <div class="slider w-75">
       <owl-carousel-o [options]="insightsCustomOptions">
-        <ng-template carouselSlide>
-          <app-insight-item></app-insight-item>
-        </ng-template>
-        <ng-template carouselSlide>
-          <app-insight-item></app-insight-item>
-        </ng-template>
-        <ng-template carouselSlide>
-          <app-insight-item></app-insight-item>
-        </ng-template>
-        <ng-template carouselSlide>
-          <app-insight-item></app-insight-item>
+        <ng-template *ngFor="let insight of insights" carouselSlide>
+          <app-insight-item [insight]="insight"></app-insight-item>
         </ng-template>
       </owl-carousel-o>
     </div>
@@ -126,7 +101,7 @@
     <div class="button-container">
       <ul class="link-list">
         <li class="link-item">
-          <a class="link" href="#">
+          <a class="link" routerLink="/add">
             Ajouter votre startup
             <svg-icon [svgStyle]="{'width.px': 24}" src="assets/images/ic-add-circle-white.svg"></svg-icon>
           </a>
@@ -138,7 +113,7 @@
           </a>
         </li>
         <li class="link-item">
-          <a class="link" href="#">
+          <a class="link" routerLink="/add">
             Ajouter votre structure de soutien
             <svg-icon [svgStyle]="{'width.px': 24}" src="assets/images/ic-add-circle-white.svg"></svg-icon>
           </a>
