@@ -17,6 +17,7 @@ export class JwtInterceptor implements HttpInterceptor {
       token = JSON.parse(sessionStorage.getItem(credentialsKey));
     }
     console.log('here', token);
+    /*
     if (token) {
       request = request.clone({
         setHeaders: {
@@ -24,6 +25,7 @@ export class JwtInterceptor implements HttpInterceptor {
         }
       });
     }
+     */
 
     if (!request.headers.has('Content-Type') && !request.headers.has('File-Upload')) {
       request = request.clone({headers: request.headers.set('Content-Type', 'application/json')});

@@ -21,6 +21,7 @@ import { MapOrganisationsResolver } from './core/resolvers/map-organisations.res
 import { InsightDetailResolver } from './core/resolvers/insight-detail.resolver';
 import { OrganisationDetailsComponent } from './pages/organisation-details/organisation-details.component';
 import { OrganisationDetailResolver } from './core/resolvers/organisation-detail.resolver';
+import { AuthenticationGuard } from './core';
 
 const routes: Routes = [
   {
@@ -82,6 +83,11 @@ const routes: Routes = [
     component: LoginComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'sign-in',
+        pathMatch: 'full'
+      },
+      {
         path: 'sign-in',
         component: SigninComponent,
       },
@@ -93,7 +99,8 @@ const routes: Routes = [
   },
   {
     path: 'add',
-    component: AddComponent
+    component: AddComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     path: 'organisation/:id',
