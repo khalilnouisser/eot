@@ -6,6 +6,11 @@
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
       </p>
     </div>
+    <div class="col-lg-6 add-visual">
+      <div class="plus-icon d-none d-lg-block">
+
+      </div>
+    </div>
   </div>
   <div class="form-rectangle">
     <mat-tab-group>
@@ -176,9 +181,14 @@
                 <div class="col-lg-3 pb-3">
                   <label class="form-label">Logo</label>
                   <label class="pic-label">
-                    <img src="assets/images/file.svg">
-                    <span class="label-text"><span class="highlight">Upload</span> your logo</span>
-                    <input type="file" accept="image/x-png,image/gif,image/jpeg" hidden>
+                    <span *ngIf="!image?.content" class="upload-text d-flex align-items center h-100">
+                      <span class="d-block w-100">
+                        <img class="file-icon" src="assets/images/file.svg">
+                        <span class="label-text"><span class="highlight">Upload</span> your logo</span>
+                      </span>
+                    </span>
+                    <img *ngIf="image?.content" [src]="image?.content" alt="image preview" class="image-thumbnail">
+                    <input (input)="onImageSelection($event)" type="file" accept="image/x-png,image/gif,image/jpeg" hidden>
                   </label>
                 </div>
               </div>

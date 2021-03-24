@@ -35,6 +35,10 @@ import { AgmCoreModule } from '@agm/core';
 import { NgProgressModule } from 'ngx-progressbar';
 import { NgProgressHttpModule } from 'ngx-progressbar/http';
 import { AgmMarkerClustererModule } from '@agm/markerclusterer';
+import { MatChipsModule } from '@angular/material/chips';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { MatDialogModule } from '@angular/material/dialog';
+import { OrganisationDetailsComponent } from './pages/organisation-details/organisation-details.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +54,8 @@ import { AgmMarkerClustererModule } from '@agm/markerclusterer';
     SigninComponent,
     SignupComponent,
     LoginComponent,
-    AddComponent
+    AddComponent,
+    OrganisationDetailsComponent
   ],
   imports: [
     CoreModule,
@@ -70,6 +75,7 @@ import { AgmMarkerClustererModule } from '@agm/markerclusterer';
     MatCheckboxModule,
     MatTabsModule,
     MatSelectModule,
+    MatDialogModule,
     AngularSvgIconModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBhe1_S7DJpRm9_WIDSVvRAdizGLd1ywxw'
@@ -78,7 +84,9 @@ import { AgmMarkerClustererModule } from '@agm/markerclusterer';
     NgProgressModule.withConfig({
       color: '#E62825'
     }),
-    NgProgressHttpModule
+    NgProgressHttpModule,
+    MatChipsModule,
+    NgxSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

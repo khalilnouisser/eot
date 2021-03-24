@@ -47,6 +47,12 @@ export class ApiService {
       .catch(ApiService.handleError);
   }
 
+  getOrganisationById(id: string): Promise<any> {
+    return this.http.get(`${environment.serverUrl}/organizations?id=${id}`)
+      .toPromise()
+      .catch(ApiService.handleError);
+  }
+
   getInsightById(id: string): Promise<any> {
     return this.http.get(`${environment.serverUrl}/insights?id=${id}`)
       .toPromise()

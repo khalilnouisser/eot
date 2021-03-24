@@ -214,6 +214,7 @@ body {
 .search-input {
   height: 54px;
   border: 1px solid #D8D8D8;
+  background-color: #FFFFFF;
   border-radius: 25px;
   display: flex;
   align-items: center;
@@ -438,6 +439,7 @@ html, body {
 .map-page {
   background-color: $bg-color;
   border-radius: 40px;
+  overflow: hidden;
 }
 
 h1.add-title {
@@ -550,12 +552,23 @@ label.pic-label {
   display: block;
   border: dashed 1px $image-upload;
   border-radius: 6px;
-  padding: 15px;
+  overflow: hidden;
+  height: 120px;
   text-align: center;
   color: $image-upload;
 
-  img {
+  span.upload-text {
+    padding: 15px;
+  }
+
+  img.file-icon {
     margin-bottom: 10px;
+  }
+
+  img.image-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   span.label-text {
@@ -747,4 +760,98 @@ h3.obs-title {
   font-weight: bold;
   color: $blue1;
   margin-bottom: 40px;
+}
+
+.filter-container {
+  background: #FFFFFF;
+  border-radius: 28px;
+  padding: 20px;
+  @include media-breakpoint-up(lg) {
+    padding: 0 0 0 20px;
+  }
+
+  .row {
+    min-height: 56px;
+  }
+
+}
+
+.field-selection {
+
+  .mat-select-arrow-wrapper {
+  }
+
+  .mat-select-arrow {
+    background: url("assets/icons/ic-chevron-down.svg") center no-repeat;
+    background-size: contain;
+    width: 14px;
+    height: 13px;
+    border: none;
+  }
+}
+
+.example-chip-list {
+  width: 100%;
+}
+
+.filter-list .mat-checkbox-frame {
+  border-width: 1px;
+  border-color: #9E9E9E;
+}
+
+.filter-list {
+  .mat-checkbox .mat-checkbox-frame {
+    transform: scale(0.8);
+  }
+
+  .mat-checkbox-checked .mat-checkbox-background {
+    transform: scale(0.8);
+  }
+}
+
+.custom-mat-dialog {
+  width: 40%;
+  height: auto;
+  margin: auto;
+
+  .mat-dialog-container {
+    background-color: #FBFBFB;
+    border-radius: 20px;
+  }
+
+  @include media-breakpoint-down(md) {
+    max-width: 100% !important;
+    height: 100vh;
+    width: 100vw;
+
+    .mat-dialog-content {
+      max-height: none;
+      height: calc(100vh - 150px);
+    }
+
+  }
+}
+
+.add-visual {
+  min-height: 300px;
+  @include media-breakpoint-up(lg) {
+    min-height: initial;
+    padding-bottom: 35%;
+  }
+  background: url("assets/images/add-visual.png") center bottom no-repeat;
+  background-size: contain;
+  position: relative;
+
+  .plus-icon {
+    position: absolute;
+    z-index: 1000;
+    height: 200px;
+    width: 200px;
+    background: url("assets/images/ic_add_shadow.svg") center no-repeat;
+    background-size: contain;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
 }

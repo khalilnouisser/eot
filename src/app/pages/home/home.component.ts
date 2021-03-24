@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 import { ApiService } from '../../core/http/api.service';
 import { Stat } from '../../core/models/stat.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Insight } from '../../core/models/insight.model';
 
 @Component({
@@ -48,15 +48,28 @@ export class HomeComponent implements OnInit {
     nav: true
   };
 
+  keyword: string;
+
   stats: Stat[];
   insights: Insight[];
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit(): void {
     this.stats = this.route.snapshot.data.stats;
     this.insights = this.route.snapshot.data.insights;
+  }
+
+  search(): void {
+    if (this.keyword) {
+      this.router.navigate(['/map'], {
+        queryParams: {
+          keyword: this.keyword
+        }
+      });
+    }
   }
 
 }

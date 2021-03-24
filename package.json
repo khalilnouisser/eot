@@ -13,6 +13,7 @@
   "dependencies": {
     "@agm/core": "^3.0.0-beta.0",
     "@agm/markerclusterer": "^3.0.0-beta.0",
+    "@angular-slider/ngx-slider": "^2.0.3",
     "@angular/animations": "^10.2.4",
     "@angular/cdk": "^10.2.7",
     "@angular/common": "~10.0.5",
@@ -31,6 +32,7 @@
     "bootstrap": "^4.6.0",
     "hammerjs": "^2.0.8",
     "jquery": "^3.5.1",
+    "moment": "^2.29.1",
     "ngx-owl-carousel-o": "^5.0.0",
     "ngx-progressbar": "^6.1.0",
     "rxjs": "~6.5.5",

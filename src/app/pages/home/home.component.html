@@ -60,10 +60,12 @@
         Rechercher une startup, accélerateur, incubateur, investisseur, coworking space, structure de soutien (Enabler),
         service publique, média, appel à projets, événement ou job
       </p>
-      <div class="search-input mb-100">
-        <svg-icon [svgStyle]="{'width.px': 32}" src="assets/images/search.svg"></svg-icon>
-        <input type="text" placeholder="Recherche"/>
-      </div>
+      <form (ngSubmit)="search()">
+        <div class="search-input mb-100">
+          <svg-icon [svgStyle]="{'width.px': 32}" src="assets/images/search.svg"></svg-icon>
+          <input [(ngModel)]="keyword" [ngModelOptions]="{standalone: true}" type="text" placeholder="Recherche"/>
+        </div>
+      </form>
     </div>
   </div>
   <h3 class="obs-title">L'Observatoire de l'écosystème entrepreneurial tunisien</h3>

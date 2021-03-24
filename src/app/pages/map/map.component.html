@@ -1,6 +1,6 @@
 <div class="container-fluid map-page mb-3">
   <div class="row">
-    <div class="col-lg-auto">
+    <div class="col-lg-auto order-1 order-lg-0">
       <div class="map-legend-container">
         <div class="startup row">
           <div class="col map-legend">
@@ -114,8 +114,58 @@
         <hr class="separator">
       </div>
     </div>
-    <div class="col-lg">
+    <div class="col-lg order-0 order-lg-1">
       <div class="map-container">
+        <div class="map-search">
+          <div class="row justify-content-center">
+            <div class="col-lg-5">
+              <form (ngSubmit)="search()">
+                <div class="search-input">
+                  <svg-icon [svgStyle]="{'width.px': 32}" src="assets/images/search.svg"></svg-icon>
+                  <input [(ngModel)]="keyword" [ngModelOptions]="{standalone: true}" type="text" placeholder="Recherche"/>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="showResults" class="map-results">
+          <div *ngFor="let organisation of searchOrganisations" class="result-item">
+            <div class="row pb-2">
+              <div class="col-auto d-flex align-items-center">
+                <div class="logo-container">
+                  <img [src]="baseUrl+organisation?.logo[0]?.url" [alt]="organisation?.name + ' Logo'">
+                </div>
+              </div>
+              <div class="col">
+                <p class="result-title">{{ organisation?.name }}</p>
+                <p class="result-type">Startup</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <p class="result-description">
+                  {{ organisation?.description?.slice(0, 102) }}...
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <a class="read-more" [routerLink]="['/organisation', organisation?.id]">Voir plus</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <agm-map [styles]="styles"
+                 (mapReady)="onMapReady($event)"
+                 [latitude]="36.482567400686705"
+                 [longitude]="9.11027157163255">
+          <agm-marker-cluster [styles]="iconStyle" [imageSizes]="[111]">
+            <agm-marker *ngFor="let organisation of filteredOrganisations"
+                        [longitude]="organisation?.address?.longitude"
+                        [latitude]="organisation?.address?.latitude"
+                        (markerDblClick)="openOrganisationDetailModal(organisation)"></agm-marker>
+          </agm-marker-cluster>
+        </agm-map>
         <div class="map-filter">
           <div [formGroup]="filterForm" class="container">
             <h6>Filtrer par</h6>
@@ -150,16 +200,6 @@
             </div>
           </div>
         </div>
-        <agm-map [styles]="styles"
-                 (mapReady)="onMapReady($event)"
-                 [latitude]="36.482567400686705"
-                 [longitude]="9.11027157163255">
-          <agm-marker-cluster [styles]="iconStyle" [imageSizes]="[111]">
-            <agm-marker *ngFor="let organisation of filteredOrganisations"
-                        [longitude]="organisation?.address?.longitude"
-                        [latitude]="organisation?.address?.latitude"></agm-marker>
-          </agm-marker-cluster>
-        </agm-map>
       </div>
     </div>
   </div>

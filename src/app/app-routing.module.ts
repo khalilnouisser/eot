@@ -19,6 +19,8 @@ import { ReportInsightResolver } from './core/resolvers/report-insight.resolver'
 import { PartnerResolver } from './core/resolvers/partner.resolver';
 import { MapOrganisationsResolver } from './core/resolvers/map-organisations.resolver';
 import { InsightDetailResolver } from './core/resolvers/insight-detail.resolver';
+import { OrganisationDetailsComponent } from './pages/organisation-details/organisation-details.component';
+import { OrganisationDetailResolver } from './core/resolvers/organisation-detail.resolver';
 
 const routes: Routes = [
   {
@@ -92,8 +94,14 @@ const routes: Routes = [
   {
     path: 'add',
     component: AddComponent
+  },
+  {
+    path: 'organisation/:id',
+    component: OrganisationDetailsComponent,
+    resolve: {
+      organisation: OrganisationDetailResolver
+    }
   }
-
 ];
 
 @NgModule({
