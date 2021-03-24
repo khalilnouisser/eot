@@ -17,9 +17,7 @@ export class InsightsComponent implements OnInit {
 
   insightsCustomOptions: OwlOptions = {
     loop: true,
-    mouseDrag: true,
-    touchDrag: false,
-    pullDrag: false,
+    pullDrag: true,
     dots: false,
     navSpeed: 700,
     autoplay: false,
@@ -30,7 +28,7 @@ export class InsightsComponent implements OnInit {
         nav: false
       },
       1024: {
-        items: 3
+        items: 1
       }
     },
     nav: true

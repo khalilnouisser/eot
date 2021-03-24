@@ -14,9 +14,7 @@ export class HomeComponent implements OnInit {
 
   customOptions: OwlOptions = {
     loop: true,
-    mouseDrag: true,
-    touchDrag: false,
-    pullDrag: false,
+    pullDrag: true,
     dots: true,
     navSpeed: 700,
     autoplay: false,
@@ -29,9 +27,7 @@ export class HomeComponent implements OnInit {
   };
   insightsCustomOptions: OwlOptions = {
     loop: true,
-    mouseDrag: true,
-    touchDrag: false,
-    pullDrag: false,
+    pullDrag: true,
     dots: false,
     navSpeed: 700,
     autoplay: false,
