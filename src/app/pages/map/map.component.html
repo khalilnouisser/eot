@@ -3,7 +3,7 @@
     <div class="col-lg-auto order-1 order-lg-0">
       <div class="map-legend-container">
         <div class="startup row">
-          <div class="col map-legend">
+          <div (click)="setType(EntityType.Startup)" class="col map-legend">
             <svg-icon src="assets/icons/ic-startup.svg"></svg-icon>
             Startups
           </div>
@@ -13,7 +13,7 @@
         </div>
         <hr class="separator">
         <div class="accelerator row">
-          <div class="col map-legend">
+          <div (click)="setType(EntityType.Accelerator)" class="col map-legend">
             <svg-icon src="assets/icons/ic-accelerator.svg"></svg-icon>
             Accélérateurs
           </div>
@@ -23,7 +23,7 @@
         </div>
         <hr class="separator">
         <div class="incubator row">
-          <div class="col map-legend">
+          <div (click)="setType(EntityType.Incubator)" class="col map-legend">
             <svg-icon src="assets/icons/ic-incubator.svg"></svg-icon>
             Incubateurs
           </div>
@@ -33,7 +33,7 @@
         </div>
         <hr class="separator">
         <div class="investor row">
-          <div class="col map-legend">
+          <div (click)="setType(EntityType.Investor)" class="col map-legend">
             <svg-icon src="assets/icons/ic-investor.svg"></svg-icon>
             Investisseurs
           </div>
@@ -43,7 +43,7 @@
         </div>
         <hr class="separator">
         <div class="coworking row">
-          <div class="col map-legend">
+          <div (click)="setType(EntityType.CoworkingSpace)" class="col map-legend">
             <svg-icon src="assets/icons/ic-coworking.svg"></svg-icon>
             Coworking Spaces
           </div>
@@ -53,7 +53,7 @@
         </div>
         <hr class="separator">
         <div class="structures row">
-          <div class="col map-legend">
+          <div (click)="setType(EntityType.Structures)" class="col map-legend">
             <svg-icon src="assets/icons/ic-structure.svg"></svg-icon>
             Structures
           </div>
@@ -63,7 +63,7 @@
         </div>
         <hr class="separator">
         <div class="media row">
-          <div class="col map-legend">
+          <div (click)="setType(EntityType.Media)" class="col map-legend">
             <svg-icon src="assets/icons/ic-media.svg"></svg-icon>
             Média
           </div>
@@ -73,7 +73,7 @@
         </div>
         <hr class="separator">
         <div class="services row">
-          <div class="col map-legend">
+          <div (click)="setType(EntityType.PublicService)" class="col map-legend">
             <svg-icon src="assets/icons/ic-public-service.svg"></svg-icon>
             Services publiques
           </div>
@@ -83,7 +83,7 @@
         </div>
         <hr class="separator">
         <div class="jobs row">
-          <div class="col map-legend">
+          <div (click)="setType(EntityType.Job)" class="col map-legend">
             <svg-icon src="assets/icons/ic-job.svg"></svg-icon>
             Jobs
           </div>
@@ -93,7 +93,7 @@
         </div>
         <hr class="separator">
         <div class="projects row">
-          <div class="col map-legend">
+          <div (click)="setType(EntityType.Project)" class="col map-legend">
             <svg-icon src="assets/icons/ic-project.svg"></svg-icon>
             Appels à projets
           </div>
@@ -103,7 +103,7 @@
         </div>
         <hr class="separator">
         <div class="events row">
-          <div class="col map-legend">
+          <div (click)="setType(EntityType.Event)" class="col map-legend">
             <svg-icon src="assets/icons/ic-event.svg"></svg-icon>
             Événements
           </div>

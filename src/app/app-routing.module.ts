@@ -22,6 +22,7 @@ import { InsightDetailResolver } from './core/resolvers/insight-detail.resolver'
 import { OrganisationDetailsComponent } from './pages/organisation-details/organisation-details.component';
 import { OrganisationDetailResolver } from './core/resolvers/organisation-detail.resolver';
 import { AuthenticationGuard } from './core';
+import { VoyageEcosystemComponent } from './pages/voyage-ecosystem/voyage-ecosystem.component';
 
 const routes: Routes = [
   {
@@ -108,6 +109,10 @@ const routes: Routes = [
     resolve: {
       organisation: OrganisationDetailResolver
     }
+  },
+  {
+    path: 'voyage-ecosystem',
+    component: VoyageEcosystemComponent
   }
 ];
 

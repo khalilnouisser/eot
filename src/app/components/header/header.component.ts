@@ -28,6 +28,10 @@ export class HeaderComponent implements OnInit {
       title: 'Jobs',
       icon: 'jobs',
       path: 'jobs'
+    },{
+      title: 'Voyage dans l’écosystème',
+      icon: 'voyage',
+      path: 'voyage-ecosystem'
     },
     {
       title: 'À propos',

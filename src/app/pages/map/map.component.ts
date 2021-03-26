@@ -143,4 +143,12 @@ export class MapComponent implements OnInit {
     });
   }
 
+  setType(type: EntityType): void {
+    if (this.filterForm.get('type').value === type) {
+      this.filterForm.patchValue({ type: '' });
+    } else {
+      this.filterForm.patchValue({ type });
+    }
+  }
+
 }

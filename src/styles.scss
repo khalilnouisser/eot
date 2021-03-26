@@ -374,11 +374,20 @@ h2 {
   margin-bottom: 40px;
 
   img {
-    width: 180px;
+    width: 100px;
+
+    @include media-breakpoint-up(lg) {
+      width: 180px;
+    }
+
   }
 
   h2 {
-    font-size: 57px;
+    font-size: 36px;
+
+    @include media-breakpoint-up(lg) {
+      font-size: 56px;
+    }
     font-weight: 700;
     color: $blue1;
     margin-top: 20px;
@@ -386,7 +395,6 @@ h2 {
 }
 
 .left-title {
-  margin-left: -28px;
 
   h1 {
     margin-left: 30px;
@@ -395,7 +403,6 @@ h2 {
 
 .right-title {
   justify-content: flex-end;
-  margin-right: -28px;
 
   h1 {
     margin-right: 30px;
@@ -854,4 +861,130 @@ h3.obs-title {
     transform: translate(-50%, 50%);
   }
 
+}
+
+.insight-panel {
+  background-color: $carousel-bg;
+  min-height: 300px;
+
+  .row {
+    min-height: 300px;
+  }
+
+  .info-col {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    padding: 60px 30px 60px 60px;
+    overflow: hidden;
+
+    .col-content {
+      width: 100%;
+    }
+
+    h3.info-title {
+      font-family: 'Ambit', sans-serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: #FFFFFF;
+      line-height: 38px;
+    }
+
+    p.info-date {
+      font-family: 'Ambit', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      font-style: italic;
+      color: #FFFFFF;
+    }
+
+  }
+
+  .image-col {
+    min-height: 200px;
+  }
+
+}
+
+.insight-panel.infography-panel {
+  .info-col {
+    background-color: $blue1;
+
+    .circle {
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      background-color: #FBFBFB;
+    }
+  }
+
+  .image-col {
+    background: url("assets/images/infography-image.png") center no-repeat;
+    background-size: cover;
+  }
+}
+
+.insight-panel.reports-panel {
+  .info-col {
+    background-color: #349A9A;
+    text-align: right;
+
+    .circle {
+      position: absolute;
+      bottom: -80px;
+      right: -80px;
+      background-color: #FBFBFB;
+    }
+  }
+
+  .image-col {
+    background: url("assets/images/reports-image.png") center no-repeat;
+    background-size: cover;
+  }
+}
+
+.ecosystem-header {
+  padding: 150px 0 200px;
+  background: url("assets/images/ecosystem-bg.png") center no-repeat;
+  background-size: cover;
+}
+
+.mindset-dialog {
+  width: 75%;
+  height: 75vh;
+  margin: auto;
+
+  .mat-dialog-container {
+    background-color: #FBFBFB;
+    border-radius: 20px;
+  }
+}
+
+.mindset-content {
+  height: 75vh;
+  width: auto;
+  margin: -24px;
+  background-color: #FBFBFB;
+
+  .row {
+    height: 100%;
+
+    .text-col {
+      background-color: $blue1;
+      border-radius: 20px;
+      padding-top: 12px;
+      color: #FFFFFF;
+    }
+
+  }
+
+}
+
+.flat-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
 }

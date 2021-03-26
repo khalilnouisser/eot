@@ -16,7 +16,7 @@ export class InsightsComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   insightsCustomOptions: OwlOptions = {
-    loop: true,
+    loop: false,
     pullDrag: true,
     dots: false,
     navSpeed: 700,

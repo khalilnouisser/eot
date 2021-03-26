@@ -1,0 +1,30 @@
+@import "src/vars";
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/mixins";
+
+.ecosystem-title {
+  font-family: 'Ambit', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: $blue1;
+}
+
+.ecosystem-description {
+  font-family: 'Ambit', sans-serif;
+  font-weight: 200;
+  color: $blue1;
+  font-size: 16px;
+}
+
+.startup-mindset-container {
+  margin-top: -150px;
+}
+
+.startup-mindset {
+  width: 100%;
+}
+
+.startup-mindset:hover {
+  cursor: pointer;
+}

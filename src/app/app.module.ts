@@ -39,6 +39,8 @@ import { MatChipsModule } from '@angular/material/chips';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { MatDialogModule } from '@angular/material/dialog';
 import { OrganisationDetailsComponent } from './pages/organisation-details/organisation-details.component';
+import { VoyageEcosystemComponent } from './pages/voyage-ecosystem/voyage-ecosystem.component';
+import { MindsetModalComponent } from './pages/voyage-ecosystem/mindset-modal/mindset-modal.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { OrganisationDetailsComponent } from './pages/organisation-details/organ
     SignupComponent,
     LoginComponent,
     AddComponent,
-    OrganisationDetailsComponent
+    OrganisationDetailsComponent,
+    VoyageEcosystemComponent,
+    MindsetModalComponent
   ],
   imports: [
     CoreModule,

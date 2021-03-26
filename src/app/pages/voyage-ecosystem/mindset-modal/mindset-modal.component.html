@@ -1,0 +1,66 @@
+<div class="mindset-content container-fluid">
+  <div class="row no-gutters">
+    <div class="col-lg-4 text-col">
+      <button mat-dialog-close class="flat-btn">
+        <svg-icon src="assets/icons/ic-circle-close-white.svg"></svg-icon>
+      </button>
+      <div class="text-col-content">
+        <div *ngIf="step === 0" class="text-container">
+          <h1 class="mindset-title">STARTUP MINDSET</h1>
+          <p class="mindset-subtitle">&nbsp;</p>
+          <hr>
+          <p class="mindset-description">
+            You are a student or you have heard the word “startup” and are looking for options to get to know more, but you don’t know where to start. These organisations are waiting for the young & curious, who are keen to create innovative projects for launching new products and solutions with help of technology tools.
+          </p>
+        </div>
+        <div *ngIf="step === 1" class="text-container">
+          <h1 class="mindset-title">PRE-STARTUP</h1>
+          <p class="mindset-subtitle">&nbsp;</p>
+          <hr>
+          <p class="mindset-description">
+            You are a student or you have heard the word “startup” and are looking for options to get to know more, but you don’t know where to start. These organisations are waiting for the young & curious, who are keen to create innovative projects for launching new products and solutions with help of technology tools.
+          </p>
+        </div>
+        <div *ngIf="step === 2" class="text-container">
+          <h1 class="mindset-title">STARTUP</h1>
+          <p class="mindset-subtitle">&nbsp;</p>
+          <hr>
+          <p class="mindset-description">
+            You are a student or you have heard the word “startup” and are looking for options to get to know more, but you don’t know where to start. These organisations are waiting for the young & curious, who are keen to create innovative projects for launching new products and solutions with help of technology tools.
+          </p>
+        </div>
+        <div *ngIf="step === 3" class="text-container">
+          <h1 class="mindset-title">SCALEUP</h1>
+          <p class="mindset-subtitle">Scaling & Establishing</p>
+          <hr>
+          <p class="mindset-description">
+            You are a student or you have heard the word “startup” and are looking for options to get to know more, but you don’t know where to start. These organisations are waiting for the young & curious, who are keen to create innovative projects for launching new products and solutions with help of technology tools.
+          </p>
+        </div>
+        <div class="navigation-container">
+          <hr>
+          <div class="row">
+            <div class="col-lg-6">
+              <button *ngIf="step" (click)="decrementStep()" class="flat-btn nav-btn">
+                <svg-icon [svgStyle]="{'margin-top.px': -4}" src="assets/icons/ic-nav-left.svg"></svg-icon> PREVIOUS
+              </button>
+            </div>
+            <div class="col-lg-6">
+              <button *ngIf="step !== 3" (click)="incrementStep()" class="flat-btn nav-btn">
+                NEXT <svg-icon [svgStyle]="{'margin-top.px': -4}" src="assets/icons/ic-nav-right.svg"></svg-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="grid-container">
+        <h2 class="grid-title">Mentoring and Events</h2>
+        <img src="assets/images/mindset-grid.svg" alt="" class="mindset-grid">
+        <h2 class="grid-title pt-3">Incubators and accelerators</h2>
+        <img src="assets/images/mindset-grid.svg" alt="" class="mindset-grid">
+      </div>
+    </div>
+  </div>
+</div>
