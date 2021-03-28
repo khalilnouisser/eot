@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 
 @Injectable({
@@ -7,7 +7,10 @@ import {environment} from '../../../environments/environment';
 })
 export class ApiService {
 
+  imageHeaders: HttpHeaders;
+
   constructor(private http: HttpClient) {
+    this.imageHeaders = new HttpHeaders({'File-Upload': 'true'});
   }
 
   private static handleError(error: Response | any): Promise<any> {
@@ -73,6 +76,20 @@ export class ApiService {
       .catch(error => {
         return Promise.reject(error.error.message[0].messages[0].message);
       });
+  }
+
+  uploadImage(file: File): Promise<any> {
+    const fd = new FormData();
+    fd.append('files', file, file.name);
+    return this.http.post(`${environment.serverUrl}/upload`, fd, { headers: this.imageHeaders })
+      .toPromise()
+      .catch(ApiService.handleError);
+  }
+
+  addOrganisation(body: any): Promise<any> {
+    return this.http.post(`${environment.serverUrl}/upload`, JSON.stringify(body))
+      .toPromise()
+      .catch(ApiService.handleError);
   }
 
 }

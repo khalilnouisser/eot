@@ -4,7 +4,6 @@ import { Organisation } from '../../core/models/organisation.model';
 import { ClusterIconStyle } from '@google/markerclustererplus';
 import { EntityType } from '../../core/enums/organisation-type.enum';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ApiService } from '../../core/http/api.service';
 import { environment } from '../../../environments/environment';
 import { MatDialog } from '@angular/material/dialog';
 import { OrganisationModalComponent } from '../../shared/modals/organisation-modal/organisation-modal.component';
@@ -126,7 +125,7 @@ export class MapComponent implements OnInit {
 
   search(): void {
     if (this.keyword) {
-      this.searchOrganisations = this.organisations
+      this.searchOrganisations = this.filteredOrganisations
         .filter(elm => elm.name.toLowerCase().includes(this.keyword.toLowerCase())
           || elm.description.toLowerCase().includes(this.keyword.toLowerCase()));
       this.showResults = true;

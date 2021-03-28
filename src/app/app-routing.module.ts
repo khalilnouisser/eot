@@ -23,6 +23,8 @@ import { OrganisationDetailsComponent } from './pages/organisation-details/organ
 import { OrganisationDetailResolver } from './core/resolvers/organisation-detail.resolver';
 import { AuthenticationGuard } from './core';
 import { VoyageEcosystemComponent } from './pages/voyage-ecosystem/voyage-ecosystem.component';
+import { StartupComponent } from './pages/add/startup/startup.component';
+import { StructureComponent } from './pages/add/structure/structure.component';
 
 const routes: Routes = [
   {
@@ -101,7 +103,17 @@ const routes: Routes = [
   {
     path: 'add',
     component: AddComponent,
-    canActivate: [AuthenticationGuard]
+    // canActivate: [AuthenticationGuard],
+    children: [
+      {
+        path: 'startup',
+        component: StartupComponent
+      },
+      {
+        path: 'structure',
+        component: StructureComponent
+      }
+    ]
   },
   {
     path: 'organisation/:id',

@@ -6,15 +6,18 @@ import { JobItemComponent } from './components/job-item/job-item.component';
 import { OrganisationModalComponent } from './modals/organisation-modal/organisation-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { MapSelectComponent } from './modals/map-select/map-select.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
-  declarations: [InsightItemComponent, JobItemComponent, OrganisationModalComponent],
-  imports: [
-    CommonModule,
-    RouterModule,
-    MatDialogModule,
-    AngularSvgIconModule
-  ],
+  declarations: [InsightItemComponent, JobItemComponent, OrganisationModalComponent, MapSelectComponent],
+    imports: [
+        CommonModule,
+        RouterModule,
+        MatDialogModule,
+        AngularSvgIconModule,
+        AgmCoreModule
+    ],
   exports: [InsightItemComponent, JobItemComponent]
 })
 export class SharedModule {

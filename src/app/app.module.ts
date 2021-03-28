@@ -41,6 +41,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { OrganisationDetailsComponent } from './pages/organisation-details/organisation-details.component';
 import { VoyageEcosystemComponent } from './pages/voyage-ecosystem/voyage-ecosystem.component';
 import { MindsetModalComponent } from './pages/voyage-ecosystem/mindset-modal/mindset-modal.component';
+import { StartupComponent } from './pages/add/startup/startup.component';
+import { StructureComponent } from './pages/add/structure/structure.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { MindsetModalComponent } from './pages/voyage-ecosystem/mindset-modal/mi
     AddComponent,
     OrganisationDetailsComponent,
     VoyageEcosystemComponent,
-    MindsetModalComponent
+    MindsetModalComponent,
+    StartupComponent,
+    StructureComponent
   ],
   imports: [
     CoreModule,
@@ -82,7 +86,8 @@ import { MindsetModalComponent } from './pages/voyage-ecosystem/mindset-modal/mi
     MatDialogModule,
     AngularSvgIconModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBhe1_S7DJpRm9_WIDSVvRAdizGLd1ywxw'
+      apiKey: 'AIzaSyBhe1_S7DJpRm9_WIDSVvRAdizGLd1ywxw',
+      libraries: ['places']
     }),
     AgmMarkerClustererModule,
     NgProgressModule.withConfig({
