@@ -103,7 +103,7 @@ const routes: Routes = [
   {
     path: 'add',
     component: AddComponent,
-    // canActivate: [AuthenticationGuard],
+    canActivate: [AuthenticationGuard],
     children: [
       {
         path: 'startup',

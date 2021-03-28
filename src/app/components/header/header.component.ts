@@ -24,11 +24,13 @@ export class HeaderComponent implements OnInit {
       icon: 'insights',
       path: 'insights'
     },
+    /*
     {
       title: 'Jobs',
       icon: 'jobs',
       path: 'jobs'
-    },{
+    },*/
+    {
       title: 'Voyage dans l’écosystème',
       icon: 'voyage',
       path: 'voyage-ecosystem'
