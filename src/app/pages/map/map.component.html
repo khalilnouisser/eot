@@ -119,17 +119,17 @@
         <div class="map-search">
           <div class="row justify-content-center">
             <div class="col-lg-5">
-              <form (ngSubmit)="search()">
+              <form [formGroup]="filterForm">
                 <div class="search-input">
                   <svg-icon [svgStyle]="{'width.px': 32}" src="assets/images/search.svg"></svg-icon>
-                  <input [(ngModel)]="keyword" [ngModelOptions]="{standalone: true}" type="text" placeholder="Recherche"/>
+                  <input formControlName="keyword" type="text" placeholder="Recherche"/>
                 </div>
               </form>
             </div>
           </div>
         </div>
         <div *ngIf="showResults" class="map-results">
-          <div *ngFor="let organisation of searchOrganisations" class="result-item">
+          <div *ngFor="let organisation of filteredOrganisations" class="result-item">
             <div class="row pb-2">
               <div class="col-auto d-flex align-items-center">
                 <div class="logo-container">

@@ -14,6 +14,7 @@ p.mindset-subtitle {
   font-family: 'Ambit', sans-serif;
   font-size: 18px;
   font-weight: 300;
+  text-transform: uppercase;
 }
 
 p.mindset-description {
@@ -58,11 +59,28 @@ p.mindset-description {
 }
 
 .grid-container {
-  height: 75vh;
-  overflow-y: scroll;
+  @include media-breakpoint-up(lg) {
+    height: 75vh;
+    overflow-y: scroll;
+  }
   padding: 40px 0;
 }
 
-.mindset-grid {
-  width: 100%;
+.logo-link {
+  display: block;
+  height: 150px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+}
+
+.col-lg-24 {
+  @include media-breakpoint-up(lg) {
+    @include make-col-ready();
+    @include make-col(2.4);
+  }
 }

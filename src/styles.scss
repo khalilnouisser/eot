@@ -951,7 +951,8 @@ h3.obs-title {
 }
 
 .ecosystem-header {
-  padding: 150px 0 200px;
+  padding-top: 150px;
+  padding-bottom: 200px;
   background: url("assets/images/ecosystem-bg.png") center no-repeat;
   background-size: cover;
 }
@@ -963,24 +964,40 @@ h3.obs-title {
 
   .mat-dialog-container {
     background-color: #FBFBFB;
-    border-radius: 20px;
+    @include media-breakpoint-up(lg) {
+      border-radius: 20px;
+    }
   }
+
+  @include media-breakpoint-down(lg) {
+    max-width: 100% !important;
+    height: 100vh;
+    width: 100vw;
+  }
+
 }
 
 .mindset-content {
-  height: 75vh;
+  height: 100vh;
   width: auto;
   margin: -24px;
   background-color: #FBFBFB;
 
-  .row {
+  @include media-breakpoint-up(lg) {
+    height: 75vh;
+  }
+
+  .row.mindset-section {
     height: 100%;
 
     .text-col {
       background-color: $blue1;
-      border-radius: 20px;
       padding-top: 12px;
       color: #FFFFFF;
+
+      @include media-breakpoint-up(lg) {
+        border-radius: 20px;
+      }
     }
 
   }

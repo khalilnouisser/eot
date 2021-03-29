@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MindsetModalComponent } from './mindset-modal/mindset-modal.component';
+import { ActivatedRoute } from '@angular/router';
+import { Voyage } from '../../core/models/voyage.model';
 
 @Component({
   selector: 'app-voyage-ecosystem',
@@ -9,15 +11,20 @@ import { MindsetModalComponent } from './mindset-modal/mindset-modal.component';
 })
 export class VoyageEcosystemComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  voyages: Voyage[];
+
+  constructor(private dialog: MatDialog,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.voyages = this.route.snapshot.data.voyages;
   }
 
   openEcosystemModal(): void {
     this.dialog.open(MindsetModalComponent, {
       disableClose: false,
-      panelClass: 'mindset-dialog'
+      panelClass: 'mindset-dialog',
+      data: this.voyages
     });
   }
 

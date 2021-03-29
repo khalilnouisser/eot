@@ -75,6 +75,7 @@ export class MapComponent implements OnInit {
   searchOrganisations: Organisation[];
 
   filterForm: FormGroup = this.fb.group({
+    keyword: [''],
     type: [''],
     region: ['']
   });
@@ -90,7 +91,7 @@ export class MapComponent implements OnInit {
     this.filteredOrganisations = this.organisations.map(elm => elm);
     this.regions = this.organisations.map(elm => elm.address.city).filter(elm => elm !== null && elm !== '');
 
-    this.filterForm.valueChanges.subscribe(({type, region}) => {
+    this.filterForm.valueChanges.subscribe(({keyword, type, region}) => {
       this.filteredOrganisations = this.organisations.filter(elm => {
         let state = true;
         if (type) {
@@ -99,13 +100,20 @@ export class MapComponent implements OnInit {
         if (region) {
           state = state && (elm.address.city === region);
         }
+        if (keyword) {
+          state = state && (elm.name.toLowerCase().includes(keyword.toLowerCase())
+            || elm.description.toLowerCase().includes(keyword.toLowerCase()));
+        }
         return state;
       });
+      this.showResults = true;
     });
 
     if (this.route.snapshot.queryParams.keyword) {
-      this.keyword = this.route.snapshot.queryParams.keyword;
-      this.search();
+      this.filterForm.patchValue({
+        keyword: this.route.snapshot.queryParams.keyword
+      });
+
     }
   }
 
@@ -123,15 +131,6 @@ export class MapComponent implements OnInit {
     return this.filteredOrganisations.filter(elm => elm.type === type).length;
   }
 
-  search(): void {
-    if (this.keyword) {
-      this.searchOrganisations = this.filteredOrganisations
-        .filter(elm => elm.name.toLowerCase().includes(this.keyword.toLowerCase())
-          || elm.description.toLowerCase().includes(this.keyword.toLowerCase()));
-      this.showResults = true;
-    }
-  }
-
   openOrganisationDetailModal(organisation: Organisation): void {
     this.dialog.open(OrganisationModalComponent, {
       disableClose: false,
@@ -145,8 +144,10 @@ export class MapComponent implements OnInit {
   setType(type: EntityType): void {
     if (this.filterForm.get('type').value === type) {
       this.filterForm.patchValue({ type: '' });
+      this.showResults = false;
     } else {
       this.filterForm.patchValue({ type });
+      this.showResults = true;
     }
   }
 

@@ -25,6 +25,7 @@ import { AuthenticationGuard } from './core';
 import { VoyageEcosystemComponent } from './pages/voyage-ecosystem/voyage-ecosystem.component';
 import { StartupComponent } from './pages/add/startup/startup.component';
 import { StructureComponent } from './pages/add/structure/structure.component';
+import { VoyagesResolver } from './core/resolvers/voyages.resolver';
 
 const routes: Routes = [
   {
@@ -124,7 +125,10 @@ const routes: Routes = [
   },
   {
     path: 'voyage-ecosystem',
-    component: VoyageEcosystemComponent
+    component: VoyageEcosystemComponent,
+    resolve: {
+      voyages: VoyagesResolver
+    }
   }
 ];
 

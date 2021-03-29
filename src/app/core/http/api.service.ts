@@ -92,4 +92,10 @@ export class ApiService {
       .catch(ApiService.handleError);
   }
 
+  getVoyages(): Promise<any> {
+    return this.http.get(`${environment.serverUrl}/voyages`)
+      .toPromise()
+      .catch(ApiService.handleError);
+  }
+
 }
