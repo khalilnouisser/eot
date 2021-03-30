@@ -4,6 +4,7 @@ import { ApiService } from '../../../core/http/api.service';
 import { EntityType } from '../../../core/enums/organisation-type.enum';
 import { MatDialog } from '@angular/material/dialog';
 import { MapSelectComponent } from '../../../shared/modals/map-select/map-select.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-startup',
@@ -46,7 +47,8 @@ export class StartupComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private api: ApiService,
-              private dialog: MatDialog) { }
+              private dialog: MatDialog,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -69,16 +71,16 @@ export class StartupComponent implements OnInit {
 
   submit(): void {
     if (this.startupForm.valid && this.image.file) {
-      this.api.uploadImage(this.image.file).then((value) => {
-        const body = Object.assign({}, this.startupForm.value);
-        body.logo = [value];
-        this.api.addOrganisation(body).then(() => {
-          console.log('Startup ajoutée avec succès!');
+      const body = Object.assign({}, this.startupForm.value);
+      this.api.addOrganisation(body).then(response => {
+        this.api.uploadOrganisationLogo(response.id, this.image.file).then(() => {
+          console.log('Startup ajoutée avec succès');
+          this.router.navigate(['/organisation', response.id]);
         }).catch(() => {
-          console.error('ERROR: Unable to add startup');
+          console.error('ERROR: Unable to upload image');
         });
       }).catch(() => {
-        console.error('ERROR: Unable to upload image');
+        console.error('ERROR: Unable to add startup');
       });
     }
   }

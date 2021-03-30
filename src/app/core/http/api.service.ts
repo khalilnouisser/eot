@@ -78,16 +78,19 @@ export class ApiService {
       });
   }
 
-  uploadImage(file: File): Promise<any> {
+  uploadOrganisationLogo(id: number, file: File): Promise<any> {
     const fd = new FormData();
     fd.append('files', file, file.name);
+    fd.append('ref', 'organization');
+    fd.append('refId', id.toString());
+    fd.append('field', 'logo');
     return this.http.post(`${environment.serverUrl}/upload`, fd, { headers: this.imageHeaders })
       .toPromise()
       .catch(ApiService.handleError);
   }
 
   addOrganisation(body: any): Promise<any> {
-    return this.http.post(`${environment.serverUrl}/upload`, JSON.stringify(body))
+    return this.http.post(`${environment.serverUrl}/organizations`, JSON.stringify(body))
       .toPromise()
       .catch(ApiService.handleError);
   }

@@ -31,6 +31,10 @@ export class JwtInterceptor implements HttpInterceptor {
       request = request.clone({headers: request.headers.set('Content-Type', 'application/json')});
     }
 
+    if (request.headers.has('File-Upload')) {
+      request = request.clone({headers: request.headers.delete('File-Upload')});
+    }
+
     return next.handle(request);
   }
 }
