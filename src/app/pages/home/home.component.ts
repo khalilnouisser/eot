@@ -4,6 +4,7 @@ import { ApiService } from '../../core/http/api.service';
 import { Stat } from '../../core/models/stat.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Insight } from '../../core/models/insight.model';
+import { TitleService } from '../../core/services/title.service';
 
 @Component({
   selector: 'app-home',
@@ -50,12 +51,17 @@ export class HomeComponent implements OnInit {
   insights: Insight[];
 
   constructor(private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private titleService: TitleService) {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Accueil');
     this.stats = this.route.snapshot.data.stats;
     this.insights = this.route.snapshot.data.insights;
+    this.insights = this.insights.sort((a, b) => {
+      return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+    });
   }
 
   search(): void {

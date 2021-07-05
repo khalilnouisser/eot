@@ -13,6 +13,7 @@ export interface Organisation {
   contact: Contact;
   social: Social;
   logo: Image[];
+  icon: any;
 }
 
 export interface Address {

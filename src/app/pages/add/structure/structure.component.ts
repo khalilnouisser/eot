@@ -5,6 +5,7 @@ import { ApiService } from '../../../core/http/api.service';
 import { MapSelectComponent } from '../../../shared/modals/map-select/map-select.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { TitleService } from '../../../core/services/title.service';
 
 @Component({
   selector: 'app-structure',
@@ -48,9 +49,12 @@ export class StructureComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private api: ApiService,
               private dialog: MatDialog,
-              private router: Router) { }
+              private router: Router,
+              private titleService: TitleService) {
+  }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Ajouter votre structure de soutien');
   }
 
   onImageSelection(event: any): void {

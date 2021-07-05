@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../core/http/api.service';
 import { CredentialsService } from '../../core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TitleService } from '../../core/services/title.service';
 
 @Component({
   selector: 'app-signin',
@@ -23,9 +24,12 @@ export class SigninComponent implements OnInit {
               private api: ApiService,
               private credentialService: CredentialsService,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private titleService: TitleService) {
+  }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Se Connecter');
     if (this.route.snapshot.queryParams.signup === 'success') {
       this.success = 'Votre compte a été créé avec succès';
     }
@@ -35,8 +39,8 @@ export class SigninComponent implements OnInit {
     this.api.login(this.loginForm.value).then(value => {
       this.credentialService.setCredentials(value.jwt);
       this.router.navigate(['/home']);
-    }).catch((error) => {
-      this.err = error;
+    }).catch(() => {
+      this.err = 'Identifiant ou mot de passe invalide';
     });
   }
 

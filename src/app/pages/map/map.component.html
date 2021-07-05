@@ -118,7 +118,7 @@
       <div class="map-container">
         <div class="map-search">
           <div class="row justify-content-center">
-            <div class="col-lg-5">
+            <div class="col">
               <form [formGroup]="filterForm">
                 <div class="search-input">
                   <svg-icon [svgStyle]="{'width.px': 32}" src="assets/images/search.svg"></svg-icon>
@@ -163,6 +163,7 @@
             <agm-marker *ngFor="let organisation of filteredOrganisations"
                         [longitude]="organisation?.address?.longitude"
                         [latitude]="organisation?.address?.latitude"
+                        [iconUrl]="organisation?.icon"
                         (markerDblClick)="openOrganisationDetailModal(organisation)"></agm-marker>
           </agm-marker-cluster>
         </agm-map>
@@ -171,7 +172,7 @@
             <h6>Filtrer par</h6>
             <div class="py-2">
               <label>Catégories</label>
-              <mat-select formControlName="type" type="text" class="form-control" placeholder="Sélectionner une catégorie">
+              <mat-select formControlName="type" class="form-control" placeholder="Sélectionner une catégorie">
                 <mat-option [value]="''">Tous</mat-option>
                 <mat-option [value]="EntityType.Startup">Startup</mat-option>
                 <mat-option [value]="EntityType.Accelerator">Accélérateur</mat-option>
@@ -188,14 +189,16 @@
             </div>
             <div class="py-2">
               <label>Régions</label>
-              <mat-select formControlName="region" type="text" class="form-control" placeholder="Sélectionner une région">
+              <mat-select formControlName="region" class="form-control" placeholder="Sélectionner une région">
                 <mat-option [value]="''">Tous</mat-option>
                 <mat-option *ngFor="let region of regions" [value]="region"><span class="text-capitalize">{{ region }}</span></mat-option>
               </mat-select>
             </div>
             <div class="py-2">
               <label>Secteurs</label>
-              <mat-select type="text" class="form-control" placeholder="Sélectionner un secteur">
+              <mat-select formControlName="sector" class="form-control" placeholder="Sélectionner un secteur">
+                <mat-option [value]="''">Tous</mat-option>
+                <mat-option *ngFor="let sector of sectors" [value]="sector"><span class="text-capitalize">{{ sector }}</span></mat-option>
               </mat-select>
             </div>
           </div>

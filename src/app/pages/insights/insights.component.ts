@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 import { ActivatedRoute } from '@angular/router';
 import { Insight } from '../../core/models/insight.model';
+import { TitleService } from '../../core/services/title.service';
 
 @Component({
   selector: 'app-insights',
@@ -13,7 +14,9 @@ export class InsightsComponent implements OnInit {
   infography: Insight[][];
   reports: Insight[][];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private titleService: TitleService) {
+  }
 
   insightsCustomOptions: OwlOptions = {
     loop: false,
@@ -35,6 +38,7 @@ export class InsightsComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.titleService.setTitle('Insights');
     this.infography = this.route.snapshot.data.infography.reduce((rows, key, index) => (index % 2 === 0 ? rows.push([key])
       : rows[rows.length - 1].push(key)) && rows, []);
     this.reports = this.route.snapshot.data.reports.reduce((rows, key, index) => (index % 2 === 0 ? rows.push([key])

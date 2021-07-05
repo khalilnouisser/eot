@@ -5,6 +5,7 @@ import { EntityType } from '../../../core/enums/organisation-type.enum';
 import { MatDialog } from '@angular/material/dialog';
 import { MapSelectComponent } from '../../../shared/modals/map-select/map-select.component';
 import { Router } from '@angular/router';
+import { TitleService } from '../../../core/services/title.service';
 
 @Component({
   selector: 'app-startup',
@@ -45,12 +46,80 @@ export class StartupComponent implements OnInit {
 
   image: {file: File, content: string | ArrayBuffer};
 
+  regions: string[] =
+    [
+      'Ariana',
+      'Tunis',
+      'Manouba',
+      'Ben Arous',
+      'Béja',
+      'Siliana',
+      'Le Kef',
+      'Jendouba',
+      'Bizerte',
+      'Nabeul',
+      'Zaghouan',
+      'Kebili',
+      'Sousse',
+      'Mahdia',
+      'Monastir',
+      'Sfax',
+      'Gabès',
+      'Médenine',
+      'Tataouine',
+      'Tozeur',
+      'Gafsa',
+      'Sidi Bouzid',
+      'Kasserine',
+      'Kairouan'
+    ];
+
+  sectors: string[] = [
+    'E-commerce',
+    'Marketplace',
+    'Fintech',
+    'Insurtech',
+    'Blockchain',
+    'Cryptocurrency',
+    'Edtech',
+    'Healthtech',
+    'Biotech',
+    'Software',
+    'Big Data',
+    'Analytics',
+    'Robotics',
+    'IoT',
+    'New food',
+    'Media',
+    'Gaming',
+    'Other creative content',
+    'Creative industry',
+    'Transport',
+    'Logistics',
+    'Delivery',
+    'Social platform',
+    'AI',
+    'Energy',
+    'Cleantech',
+    'Agritech',
+    'Mobility',
+    'Hometech',
+    'Waste management',
+    'Talent & Job platforms ',
+    'Legaltech',
+    'Travel & Tourism',
+    'Industry 4.0'
+  ];
+
   constructor(private fb: FormBuilder,
               private api: ApiService,
               private dialog: MatDialog,
-              private router: Router) { }
+              private router: Router,
+              private titleService: TitleService) {
+  }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Ajouter votre startup');
   }
 
   onImageSelection(event: any): void {

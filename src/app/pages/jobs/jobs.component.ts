@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { LabelType, Options } from '@angular-slider/ngx-slider';
+import { TitleService } from '../../core/services/title.service';
 
 export interface Fruit {
   name: string;
@@ -58,9 +59,11 @@ export class JobsComponent implements OnInit {
     }
   };
 
-  constructor() { }
+  constructor(private titleService: TitleService) {
+  }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Jobs');
   }
 
   add(event: MatChipInputEvent): void {

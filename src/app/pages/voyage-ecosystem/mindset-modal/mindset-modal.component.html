@@ -18,12 +18,12 @@
           <div class="row">
             <div class="col-lg-6">
               <button *ngIf="step" (click)="decrementStep()" class="flat-btn nav-btn">
-                <svg-icon [svgStyle]="{'margin-top.px': -4}" src="assets/icons/ic-nav-left.svg"></svg-icon> PREVIOUS
+                <svg-icon [svgStyle]="{'margin-top.px': -4}" src="assets/icons/ic-nav-left.svg"></svg-icon> PRÉCÉDENT
               </button>
             </div>
             <div class="col-lg-6">
               <button *ngIf="step < (voyages?.length - 1)" (click)="incrementStep()" class="flat-btn nav-btn">
-                NEXT <svg-icon [svgStyle]="{'margin-top.px': -4}" src="assets/icons/ic-nav-right.svg"></svg-icon>
+                SUIVANT <svg-icon [svgStyle]="{'margin-top.px': -4}" src="assets/icons/ic-nav-right.svg"></svg-icon>
               </button>
             </div>
           </div>

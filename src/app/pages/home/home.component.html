@@ -9,8 +9,7 @@
                 <div>
                   <h2>Infographies & Rapports</h2>
                   <p>
-                    Les startups, accélerateurs, incubateurs, investisseurs, coworking spaces, structures de soutien (Enabler),
-                    services publiques, média, appels à projets, événements et jobs.
+                    Explorez les infographie et les rapports d'Entrepreneurs of Tunisia sur l'écosystème des startups Tunisien.
                   </p>
                 </div>
               </div>
@@ -36,8 +35,7 @@
                 <div>
                   <h2>Découvrir</h2>
                   <p>
-                    Les startups, accélerateurs, incubateurs, investisseurs, coworking spaces, structures de soutien (Enabler),
-                    services publiques, média, appels à projets, événements et jobs.
+                    La cartographie de l'écosystème des startups Tunisien. Startups, incubateurs, accélérateurs, investisseurs, coworking spaces et plus encore dans notre mapping interactif.
                   </p>
                   <a class="carousel-link" routerLink="/map">
                     <svg-icon [svgStyle]="{'width.px': 40}" src="assets/icons/ic-go.svg"></svg-icon>
@@ -57,8 +55,7 @@
   <div class="row justify-content-center pt-5">
     <div class="col-lg-10">
       <p class="home-seach-text">
-        Rechercher une startup, accélerateur, incubateur, investisseur, coworking space, structure de soutien (Enabler),
-        service publique, média, appel à projets, événement ou job
+        Recherchez une startup ou un acteur de soutien de l'écosystème des startups Tunisien
       </p>
       <form (ngSubmit)="search()">
         <div class="search-input mb-100">
@@ -68,7 +65,7 @@
       </form>
     </div>
   </div>
-  <h3 class="obs-title">L'Observatoire de l'écosystème entrepreneurial tunisien</h3>
+  <h3 class="obs-title">L'observatoire de l'écosystème des startups Tunisiens</h3>
   <div class="row text-center justify-content-center mb-100">
     <div *ngFor="let stat of stats" class="col-lg-2 stat-item text-center text-lg-start mb-3">
       <p class="stat-value">{{ stat?.value }}</p>
@@ -94,11 +91,10 @@
   </div>
   <div class="content-container py-5">
     <h2 class="main-title">
-      Main Title Here
+      Rejoignez Entrepreneurs of Tunisia
     </h2>
     <p class="main-paragraph">
-      Rechercher une startup, accélerateur, incubateur, investisseur, coworking space, structure de soutien (Enabler),
-      service publique, média, appel à projets, événement ou job
+      Ajoutez votre startup ou votre structure de soutien et faites partie du mapping le plus complet de l'écosystème des startups Tunisien.
     </p>
     <div class="button-container">
       <ul class="link-list">
@@ -130,25 +126,14 @@
 
 <div class="container-fluid">
   <div class="about mb-80">
-    <div class="header d-flex align-items-center justify-content-center">
-      <svg-icon [svgStyle]="{'height.px': 59}" src="assets/images/about.svg"></svg-icon>
-      <h1>À propos</h1>
+    <div class="header text-center">
+      <h1 class="m-0"><svg-icon src="assets/images/about.svg"></svg-icon> À propos</h1>
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-6">
-          <h5>Nos objectifs :</h5>
-          <p>
-            Faciliter l’accès à l’information à travers des données fiables, mises à jour et une utilisation
-            ergonomique.<br/><br/>Connecter les parties prenantes en favorisant les interactions et les échanges
-            constructifs.<br/><br/>Promouvoir les synergies en mettant l’accent sur les opportunités crées.<br/><br/>Inspirer
-            les jeunes en mettant en exergues les bonnes pratiques.<br/><br/>Analyser et valoriser les données remontées
-            en publiant des études et des rapports périodiques.
-          </p>
-        </div>
-        <div class="col-lg-6">
-          <h5>Notre vision :</h5>
-          <p>Être la référence nationale et régionale dans le mapping des acteurs entrepreneuriaux en se focalisant sur la collecte, la présentation et la mise à jour des données relatives à la scène entrepreneuriale tunisienne.</p>
+        <div class="col">
+          <p>Entrepreneurs of Tunisia est l'observatoire de l'écosystème des startups Tunisien.</p>
+          <p>Initiative de la Fondation BIAT pour la jeunesse, en partenariat avec MAZAM et soutenue par Biatlabs, Entrepreneurs of Tunisia vous permet d'explorer l'écosystème des startups Tunisien. Vous pouvez découvrir les startups, les structures de soutien, les investisseurs et encore plus d'acteurs sur notre cartographie dynamique ou à travers les infographies et les rapports que nous publions régulièrement.</p>
         </div>
       </div>
     </div>

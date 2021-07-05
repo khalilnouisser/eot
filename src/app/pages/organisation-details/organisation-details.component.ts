@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Organisation } from '../../core/models/organisation.model';
 import { environment } from '../../../environments/environment';
 import * as moment from 'moment';
+import { TitleService } from '../../core/services/title.service';
 
 @Component({
   selector: 'app-organisation-details',
@@ -19,10 +20,13 @@ export class OrganisationDetailsComponent implements OnInit {
 
   organisation: Organisation;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private titleService: TitleService) {
+}
 
   ngOnInit(): void {
     this.organisation = this.route.snapshot.data.organisation[0];
+    this.titleService.setTitle(this.organisation.name);
   }
 
   onMapReady(map: any): void {

@@ -11,5 +11,12 @@
 
 
 <div class="container startup-mindset-container pb-5">
-  <img (click)="openEcosystemModal()" class="startup-mindset" src="assets/images/startup-mindset.svg" alt="">
+  <div (click)="openEcosystemModal()" class="ecosystem-card">
+    <div *ngFor="let voyage of voyages" class="ecosystem-item">
+      <div>
+        <h2 class="step-title">{{ voyage?.title }}</h2>
+        <p class="subtitle">{{ voyage?.sub_title }}</p>
+      </div>
+    </div>
+  </div>
 </div>

@@ -9,7 +9,7 @@
 }
 
 .nav-item {
-  padding: 0 20px;
+  padding: 0 14px;
 
   img {
     opacity: 0;
@@ -20,7 +20,7 @@
   a {
     color: $gray2;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     transition: color .3s ease-in-out;
   }
 
@@ -37,7 +37,7 @@
 
   img {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(20%);
   }
 
   a {
@@ -72,6 +72,7 @@
 
   .submit-button{
     margin-top: 30px;
+    font-size: 14px;
   }
 
   .mr-80 {

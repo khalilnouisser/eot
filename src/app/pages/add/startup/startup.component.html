@@ -24,8 +24,7 @@
           <mat-select formControlName="city"
                       placeholder="Votre région"
                       class="form-control">
-            <mat-option value="Tunis">Tunis</mat-option>
-            <mat-option value="Ariana">Ariana</mat-option>
+            <mat-option *ngFor="let region of regions" [value]="region">{{ region }}</mat-option>
           </mat-select>
         </div>
       </div>
@@ -134,7 +133,7 @@
           <mat-select formControlName="sector"
                       placeholder="Votre Secteur d'activité"
                       class="form-control">
-            <mat-option value="Média">Média</mat-option>
+            <mat-option *ngFor="let sector of sectors" [value]="sector">{{ sectors }}</mat-option>
           </mat-select>
         </div>
         <div class="col-lg-4 pb-3">

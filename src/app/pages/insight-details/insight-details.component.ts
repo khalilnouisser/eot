@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Insight } from '../../core/models/insight.model';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { environment } from '../../../environments/environment';
+import { TitleService } from '../../core/services/title.service';
 
 @Component({
   selector: 'app-insight-details',
@@ -48,10 +49,13 @@ export class InsightDetailsComponent implements OnInit {
     items: 1
   };
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private titleService: TitleService) {
+  }
 
   ngOnInit(): void {
     this.insight = this.route.snapshot.data.insight[0];
+    this.titleService.setTitle(this.insight.title);
   }
 
 }

@@ -8,6 +8,7 @@ import { environment } from '../../../environments/environment';
 import { MatDialog } from '@angular/material/dialog';
 import { OrganisationModalComponent } from '../../shared/modals/organisation-modal/organisation-modal.component';
 import { mapSettings } from '../../core/map-settings';
+import { TitleService } from '../../core/services/title.service';
 
 @Component({
   selector: 'app-map',
@@ -68,7 +69,70 @@ export class MapComponent implements OnInit {
 
   organisations: Organisation[];
   filteredOrganisations: Organisation[];
-  regions: string[];
+  regions: string[] =
+    [
+      'Ariana',
+      'Tunis',
+      'Manouba',
+      'Ben Arous',
+      'Béja',
+      'Siliana',
+      'Le Kef',
+      'Jendouba',
+      'Bizerte',
+      'Nabeul',
+      'Zaghouan',
+      'Kebili',
+      'Sousse',
+      'Mahdia',
+      'Monastir',
+      'Sfax',
+      'Gabès',
+      'Médenine',
+      'Tataouine',
+      'Tozeur',
+      'Gafsa',
+      'Sidi Bouzid',
+      'Kasserine',
+      'Kairouan'
+    ];
+
+  sectors: string[] = [
+    'E-commerce',
+    'Marketplace',
+    'Fintech',
+    'Insurtech',
+    'Blockchain',
+    'Cryptocurrency',
+    'Edtech',
+    'Healthtech',
+    'Biotech',
+    'Software',
+    'Big Data',
+    'Analytics',
+    'Robotics',
+    'IoT',
+    'New food',
+    'Media',
+    'Gaming',
+    'Other creative content',
+    'Creative industry',
+    'Transport',
+    'Logistics',
+    'Delivery',
+    'Social platform',
+    'AI',
+    'Energy',
+    'Cleantech',
+    'Agritech',
+    'Mobility',
+    'Hometech',
+    'Waste management',
+    'Talent & Job platforms ',
+    'Legaltech',
+    'Travel & Tourism',
+    'Industry 4.0'
+  ];
 
   keyword: string;
   showResults: boolean;
@@ -77,19 +141,23 @@ export class MapComponent implements OnInit {
   filterForm: FormGroup = this.fb.group({
     keyword: [''],
     type: [''],
-    region: ['']
+    region: [''],
+    sector: ['']
   });
 
   constructor(private route: ActivatedRoute,
               private fb: FormBuilder,
-              private dialog: MatDialog) {
-  }
-
+              private dialog: MatDialog,
+              private titleService: TitleService) {
+}
 
   ngOnInit(): void {
+    this.titleService.setTitle('Map');
     this.organisations = this.route.snapshot.data.organisations;
+    this.organisations.forEach(organisation => {
+      organisation.icon = this.getIconUrl(organisation);
+    });
     this.filteredOrganisations = this.organisations.map(elm => elm);
-    this.regions = this.organisations.map(elm => elm.address.city).filter(elm => elm !== null && elm !== '');
 
     this.filterForm.valueChanges.subscribe(({keyword, type, region}) => {
       this.filteredOrganisations = this.organisations.filter(elm => {
@@ -128,7 +196,7 @@ export class MapComponent implements OnInit {
   }
 
   count(type: EntityType): number {
-    return this.filteredOrganisations.filter(elm => elm.type === type).length;
+    return this.organisations.filter(elm => elm.type === type).length;
   }
 
   openOrganisationDetailModal(organisation: Organisation): void {
@@ -149,6 +217,52 @@ export class MapComponent implements OnInit {
       this.filterForm.patchValue({ type });
       this.showResults = true;
     }
+  }
+
+  getIconUrl(organization: Organisation): google.maps.Icon {
+    const icon = {
+      url: '',
+      scaledSize: {
+        height: 60,
+        width: 40
+      }
+    };
+    switch (organization.type) {
+      case EntityType.Accelerator:
+        icon.url = 'assets/map-pins/pin-accelerator.png';
+        break;
+      case EntityType.CoworkingSpace:
+        icon.url = 'assets/map-pins/pin-coworking.png';
+        break;
+      case EntityType.Event:
+        icon.url = 'assets/map-pins/pin-event.png';
+        break;
+      case EntityType.Incubator:
+        icon.url = 'assets/map-pins/pin-incubator.png';
+        break;
+      case EntityType.Investor:
+        icon.url = 'assets/map-pins/pin-investor.png';
+        break;
+      case EntityType.Job:
+        icon.url = 'assets/map-pins/pin-job.png';
+        break;
+      case EntityType.Media:
+        icon.url = 'assets/map-pins/pin-media.png';
+        break;
+      case EntityType.Project:
+        icon.url = 'assets/map-pins/pin-project.png';
+        break;
+      case EntityType.PublicService:
+        icon.url = 'assets/map-pins/pin-public-service.png';
+        break;
+      case EntityType.Startup:
+        icon.url = 'assets/map-pins/pin-startup.png';
+        break;
+      case EntityType.Structures:
+        icon.url = 'assets/map-pins/pin-structure.png';
+        break;
+    }
+    return icon as google.maps.Icon;
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Partner } from '../../core/models/partner.model';
 import { environment } from '../../../environments/environment';
+import { TitleService } from '../../core/services/title.service';
 
 @Component({
   selector: 'app-partners',
@@ -14,9 +15,12 @@ export class PartnersComponent implements OnInit {
 
   partners: Partner[];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private titleService: TitleService) {
+  }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Partenaires');
     this.partners = this.route.snapshot.data.partners;
   }
 

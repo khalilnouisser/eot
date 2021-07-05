@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../core/http/api.service';
 import { Router } from '@angular/router';
+import { TitleService } from '../../core/services/title.service';
 
 @Component({
   selector: 'app-signup',
@@ -21,9 +22,12 @@ export class SignupComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private api: ApiService,
-              private router: Router) { }
+              private router: Router,
+              private titleService: TitleService) {
+  }
 
   ngOnInit(): void {
+    this.titleService.setTitle('S\'inscrire');
   }
 
   create(): void {
