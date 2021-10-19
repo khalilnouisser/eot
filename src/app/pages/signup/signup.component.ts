@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../core/http/api.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TitleService } from '../../core/services/title.service';
+import { CredentialsService } from '../../core';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,8 @@ export class SignupComponent implements OnInit {
   err: string;
 
   signupForm: FormGroup = this.fb.group({
-    username: ['', [Validators.required, Validators.minLength(5)]],
+    full_name: ['', [Validators.required, Validators.minLength(5)]],
+    username: ['', [Validators.required, Validators.minLength(3)]],
     organisation: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]]
@@ -23,7 +25,9 @@ export class SignupComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private api: ApiService,
               private router: Router,
-              private titleService: TitleService) {
+              private titleService: TitleService,
+              private credentialService: CredentialsService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -31,12 +35,13 @@ export class SignupComponent implements OnInit {
   }
 
   create(): void {
-    this.api.register(this.signupForm.value).then(() => {
-      this.router.navigate(['/login', 'sign-in'], {
-        queryParams: {
-          signup: 'success'
-        }
-      });
+    this.api.register(this.signupForm.value).then(value => {
+      this.credentialService.setCredentials(value);
+      if (this.route.snapshot.queryParams.redirect) {
+        this.router.navigateByUrl(this.route.snapshot.queryParams.redirect);
+      } else {
+        this.router.navigate(['/home']);
+      }
     });
   }
 

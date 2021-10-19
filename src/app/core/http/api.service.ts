@@ -26,6 +26,12 @@ export class ApiService {
     return Promise.reject(errMsg);
   }
 
+  me(): Promise<any> {
+    return this.http.get(`${environment.serverUrl}/users/me`)
+      .toPromise()
+      .catch(ApiService.handleError);
+  }
+
   getStats(): Promise<any> {
     return this.http.get(`${environment.serverUrl}/stats`)
       .toPromise()
@@ -71,7 +77,7 @@ export class ApiService {
   }
 
   register(body: any): Promise<any> {
-    return this.http.post(`${environment.serverUrl}/users`, JSON.stringify(body))
+    return this.http.post(`${environment.serverUrl}/auth/local/register`, JSON.stringify(body))
       .toPromise()
       .catch(error => {
         return Promise.reject(error.error.message[0].messages[0].message);

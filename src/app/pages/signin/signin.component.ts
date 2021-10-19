@@ -36,9 +36,14 @@ export class SigninComponent implements OnInit {
   }
 
   login(): void {
+    console.log(this.loginForm.value);
     this.api.login(this.loginForm.value).then(value => {
-      this.credentialService.setCredentials(value.jwt);
-      this.router.navigate(['/home']);
+      this.credentialService.setCredentials(value);
+      if (this.route.snapshot.queryParams.redirect) {
+        this.router.navigateByUrl(this.route.snapshot.queryParams.redirect);
+      } else {
+        this.router.navigate(['/home']);
+      }
     }).catch(() => {
       this.err = 'Identifiant ou mot de passe invalide';
     });

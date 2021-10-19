@@ -1,23 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { credentialsKey } from '../authentication/credentials.service';
+import { CredentialsService } from '../authentication/credentials.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-  constructor() {
+
+  constructor(private credentialsService: CredentialsService) {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // add authorization header with jwt token if available
-    let token: string;
-    if ((localStorage.getItem(credentialsKey))) {
-      token = JSON.parse(localStorage.getItem(credentialsKey));
-    } else if ((sessionStorage.getItem(credentialsKey))) {
-      token = JSON.parse(sessionStorage.getItem(credentialsKey));
-    }
-    console.log('here', token);
-    /*
+    const token = this.credentialsService.credentials?.jwt;
+
     if (token) {
       request = request.clone({
         setHeaders: {
@@ -25,7 +20,6 @@ export class JwtInterceptor implements HttpInterceptor {
         }
       });
     }
-     */
 
     if (!request.headers.has('Content-Type') && !request.headers.has('File-Upload')) {
       request = request.clone({headers: request.headers.set('Content-Type', 'application/json')});

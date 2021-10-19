@@ -7,7 +7,15 @@
         <div class="col">
           <mat-form-field class="w-100" appearance="fill" floatLabel="always">
             <mat-label>Nom et Prénom</mat-label>
-            <input formControlName="username" type="text" matInput placeholder="Nom et Prénom">
+            <input formControlName="full_name" type="text" matInput placeholder="Nom et Prénom">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="w-100" appearance="fill" floatLabel="always">
+            <mat-label>Pseudonyme</mat-label>
+            <input formControlName="username" type="text" matInput placeholder="Pseudonyme">
           </mat-form-field>
         </div>
       </div>
@@ -49,10 +57,10 @@
       </div>
       <div class="row login-btns">
         <div class="col-auto">
-          <img src="assets/images/login-fb.svg">
+          <img alt="Facebook login icon" src="assets/images/login-fb.svg">
         </div>
         <div class="col-auto">
-          <img src="assets/images/login-google.svg">
+          <img alt="Google login icon" src="assets/images/login-google.svg">
         </div>
       </div>
     </form>

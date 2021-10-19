@@ -15,7 +15,7 @@
           <label class="form-label">Date de création</label>
           <input type="date"
                  placeholder="20/01/2020"
-                 formControlName="created_at"
+                 formControlName="founding_date"
                  class="form-control">
           <small class="feedback-invalid">Veuillez remplir ce champ!</small>
         </div>
@@ -133,13 +133,13 @@
           <mat-select formControlName="sector"
                       placeholder="Votre Secteur d'activité"
                       class="form-control">
-            <mat-option *ngFor="let sector of sectors" [value]="sector">{{ sectors }}</mat-option>
+            <mat-option *ngFor="let sector of sectors" [value]="sector">{{ sector }}</mat-option>
           </mat-select>
         </div>
         <div class="col-lg-4 pb-3">
           <label class="form-label">Stade d'avancement</label>
           <mat-select placeholder="Stade d'avancement"
-                      formControlName="advancementStage"
+                      formControlName="advancement_stage"
                       class="form-control">
             <mat-option value="MVP">MVP</mat-option>
           </mat-select>
@@ -190,7 +190,7 @@
           <label class="pic-label">
                     <span *ngIf="!image?.content" class="upload-text d-flex align-items center h-100">
                       <span class="d-block w-100">
-                        <img class="file-icon" src="assets/images/file.svg">
+                        <img alt="File upload icon" class="file-icon" src="assets/images/file.svg">
                         <span class="label-text"><span class="highlight">Upload</span> your logo</span>
                       </span>
                     </span>

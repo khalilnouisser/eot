@@ -18,7 +18,7 @@ export class StartupComponent implements OnInit {
     name: ['', [Validators.required]],
     type: [EntityType.Startup, [Validators.required]],
     description: ['', [Validators.required]],
-    created_at: ['', [Validators.required]],
+    founding_date: ['', [Validators.required]],
     address: this.fb.group({
       street_address: ['', [Validators.required]],
       country: ['Tunisie'],
@@ -38,10 +38,10 @@ export class StartupComponent implements OnInit {
       instagram: ['']
     }),
     sector: ['Média', [Validators.required]],
-    advancementStage: ['MVP', [Validators.required]],
-    cofounders: ['', [Validators.required]],
-    funding: ['', [Validators.required]],
-    employees: ['', [Validators.required]]
+    advancement_stage: ['MVP', [Validators.required]],
+    cofounders: ['', [Validators.required, Validators.min(0)]],
+    funding: ['', [Validators.required, Validators.min(0)]],
+    employees: ['', [Validators.required, Validators.min(0)]]
   });
 
   image: {file: File, content: string | ArrayBuffer};
@@ -105,7 +105,7 @@ export class StartupComponent implements OnInit {
     'Mobility',
     'Hometech',
     'Waste management',
-    'Talent & Job platforms ',
+    'Talent & Job platforms',
     'Legaltech',
     'Travel & Tourism',
     'Industry 4.0'
@@ -141,16 +141,17 @@ export class StartupComponent implements OnInit {
   submit(): void {
     if (this.startupForm.valid && this.image.file) {
       const body = Object.assign({}, this.startupForm.value);
-      this.api.addOrganisation(body).then(response => {
-        this.api.uploadOrganisationLogo(response.id, this.image.file).then(() => {
-          console.log('Startup ajoutée avec succès');
-          this.router.navigate(['/organisation', response.id]);
-        }).catch(() => {
-          console.error('ERROR: Unable to upload image');
-        });
-      }).catch(() => {
-        console.error('ERROR: Unable to add startup');
-      });
+      console.log(body);
+      // this.api.addOrganisation(body).then(response => {
+      //   this.api.uploadOrganisationLogo(response.id, this.image.file).then(() => {
+      //     console.log('Startup ajoutée avec succès');
+      //     this.router.navigate(['/organisation', response.id]);
+      //   }).catch(() => {
+      //     console.error('ERROR: Unable to upload image');
+      //   });
+      // }).catch(() => {
+      //   console.error('ERROR: Unable to add startup');
+      // });
     }
   }
 

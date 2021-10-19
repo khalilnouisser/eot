@@ -24,7 +24,7 @@ export class StructureComponent implements OnInit {
     name: ['', [Validators.required]],
     type: [EntityType.CoworkingSpace, [Validators.required]],
     description: ['', [Validators.required]],
-    created_at: ['', [Validators.required]],
+    founding_date: ['', [Validators.required]],
     address: this.fb.group({
       street_address: ['', [Validators.required]],
       country: ['Tunisie'],
@@ -43,7 +43,7 @@ export class StructureComponent implements OnInit {
       twitter: [''],
       instagram: ['']
     }),
-    advancementStage: ['MVP', [Validators.required]]
+    advancement_stage: ['MVP', [Validators.required]]
   });
 
   constructor(private fb: FormBuilder,
