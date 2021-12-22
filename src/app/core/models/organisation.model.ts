@@ -14,6 +14,12 @@ export interface Organisation {
   social: Social;
   logo: Image[];
   icon: any;
+  funding: number;
+  cofounders: number;
+  employees: number;
+  advancement_stage: string;
+  sector: string;
+  founding_date: Date;
 }
 
 export interface Address {

@@ -25,10 +25,10 @@
           </div>
         </div>
         <div class="social">
-          <a [href]="organisation?.social?.linkedin" target="_blank"><svg-icon src="assets/icons/ic-linkedin.svg"></svg-icon></a>
-          <a [href]="organisation?.social?.facebook" target="_blank"><svg-icon src="assets/icons/ic-facebook.svg"></svg-icon></a>
-          <a [href]="organisation?.social?.twitter" target="_blank"><svg-icon src="assets/icons/ic-twitter.svg"></svg-icon></a>
-          <a [href]="organisation?.social?.instagram" target="_blank"><svg-icon src="assets/icons/ic-instagram.svg"></svg-icon></a>
+          <a *ngIf="organisation?.social?.linkedin" [href]="organisation?.social?.linkedin" target="_blank"><svg-icon src="assets/icons/ic-linkedin.svg"></svg-icon></a>
+          <a *ngIf="organisation?.social?.facebook" [href]="organisation?.social?.facebook" target="_blank"><svg-icon src="assets/icons/ic-facebook.svg"></svg-icon></a>
+          <a *ngIf="organisation?.social?.twitter" [href]="organisation?.social?.twitter" target="_blank"><svg-icon src="assets/icons/ic-twitter.svg"></svg-icon></a>
+          <a *ngIf="organisation?.social?.instagram" [href]="organisation?.social?.instagram" target="_blank"><svg-icon src="assets/icons/ic-instagram.svg"></svg-icon></a>
         </div>
         <div class="py-5">
           <h2 class="description-title">Description</h2>
@@ -53,51 +53,51 @@
   </div>
   <div class="px-lg-5">
     <div class="row">
-      <div class="col-lg-2">
+      <div *ngIf="organisation?.founding_date" class="col-lg-2">
         <div class="stat-box">
           <div class="stat-content">
             <p class="stat-name">Date de création</p>
-            <p class="stat-val">{{ moment(organisation?.created_at).locale('fr').format('ll') }}</p>
+            <p class="stat-val">{{ moment(organisation?.founding_date).locale('fr').format('ll') }}</p>
           </div>
         </div>
       </div>
-      <div class="col-lg-2">
+      <div *ngIf="organisation?.sector" class="col-lg-2">
         <div class="stat-box">
           <div class="stat-content">
             <p class="stat-name">Secteur</p>
-            <p class="stat-val">Média</p>
+            <p class="stat-val">{{ organisation?.sector }}</p>
           </div>
         </div>
       </div>
-      <div class="col-lg-2">
+      <div *ngIf="organisation?.advancement_stage" class="col-lg-2">
         <div class="stat-box">
           <div class="stat-content">
             <p class="stat-name">Stade d’avancement</p>
-            <p class="stat-val">MVP</p>
+            <p class="stat-val">{{ organisation?.advancement_stage }}</p>
           </div>
         </div>
       </div>
-      <div class="col-lg-2">
+      <div *ngIf="organisation?.cofounders" class="col-lg-2">
         <div class="stat-box">
           <div class="stat-content">
             <p class="stat-name">Nombre de co-fondateur</p>
-            <p class="stat-val">3</p>
+            <p class="stat-val">{{ organisation?.cofounders }}</p>
           </div>
         </div>
       </div>
-      <div class="col-lg-2">
+      <div *ngIf="organisation?.funding" class="col-lg-2">
         <div class="stat-box">
           <div class="stat-content">
             <p class="stat-name">Financement levé</p>
-            <p class="stat-val">50 000 DT</p>
+            <p class="stat-val">{{ organisation?.funding?.toFixed(0) }} DT</p>
           </div>
         </div>
       </div>
-      <div class="col-lg-2">
+      <div *ngIf="organisation?.employees" class="col-lg-2">
         <div class="stat-box">
           <div class="stat-content">
             <p class="stat-name">Nombre d’employés</p>
-            <p class="stat-val">17</p>
+            <p class="stat-val">{{ organisation?.employees }}</p>
           </div>
         </div>
       </div>
